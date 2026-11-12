@@ -1,0 +1,1 @@
+{"language": "java", "task": "Reverse a string", "code": {}, "tests": {}, "passed": true, "reasoning_summary": "StringBuilder.reverse."}
