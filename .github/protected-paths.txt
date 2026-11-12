@@ -1,0 +1,12 @@
+# Protected paths: a PR that adds, modifies, deletes or renames any path
+# matching a pattern below cannot merge. Patterns use Python fnmatch rules,
+# where * also matches across "/". Changing this file is itself protected
+# (it lives under .github/).
+rules/*
+review/*
+.claude/settings.json
+.claude/settings.local.json
+.github/*
+benchmark/*
+eval/*
+PAUSE

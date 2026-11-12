@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(rules/**)",
+      "Write(rules/**)",
+      "Edit(review/**)",
+      "Write(review/**)",
+      "Edit(.claude/settings.json)",
+      "Write(.claude/settings.json)",
+      "Edit(.claude/settings.local.json)",
+      "Write(.claude/settings.local.json)",
+      "Edit(.github/**)",
+      "Write(.github/**)",
+      "Edit(benchmark/**)",
+      "Write(benchmark/**)",
+      "Edit(eval/**)",
+      "Write(eval/**)",
+      "Edit(PAUSE)",
+      "Write(PAUSE)"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+# Local plugin state on Gareth's PC
+.claude-flow/
+.swarm/
+
+# Built on demand by tools/export.py
+exports/
+
+# Build and runtime output
+target/
+__pycache__/
+.claude/proven-config.json
+.claude/.proven-config-version
