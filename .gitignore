@@ -10,3 +10,6 @@ target/
 __pycache__/
 .claude/proven-config.json
 .claude/.proven-config-version
+
+# Local working copy of the auto-engineer-bench repo (never committed here)
+_bench/
