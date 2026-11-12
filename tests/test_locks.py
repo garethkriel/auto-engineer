@@ -36,7 +36,7 @@ class LocksTest(unittest.TestCase):
                         REQUIRED_PATTERNS - read_patterns())
 
     def test_settings_deny_covers_protected(self):
-        settings = json.loads((ROOT / "templates" / "claude-settings.json").read_text(encoding="utf-8"))
+        settings = json.loads((ROOT / ".claude" / "settings.json").read_text(encoding="utf-8"))
         deny = set(settings["permissions"]["deny"])
         for pattern in read_patterns():
             path = deny_path(pattern)
