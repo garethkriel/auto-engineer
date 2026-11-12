@@ -17,6 +17,14 @@ jobs:
   guard:
     runs-on: ubuntu-latest
     steps:
+      # This repo is public. Only PRs from branches of this repo itself can
+      # merge; a PR from anyone's fork fails here.
+      - name: Reject PRs from forks
+        if: github.event.pull_request.head.repo.full_name != github.repository
+        run: |
+          echo "PRs from forks are not accepted in this repo."
+          exit 1
+
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.base.ref }}

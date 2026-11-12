@@ -26,6 +26,7 @@ jobs:
           ACTION: ${{ github.event.action }}
           HEAD_REF: ${{ github.head_ref }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
           FIRE_URL: ${{ secrets.FIRE_URL }}
           FIRE_TOKEN: ${{ secrets.FIRE_TOKEN }}
         run: |
@@ -33,6 +34,12 @@ jobs:
             gh api "repos/$GITHUB_REPOSITORY/statuses/$HEAD_SHA" \
               -f state="$1" -f context=benchmark -f description="$2" > /dev/null
           }
+          # Public repo: a fork PR never fires a benchmark run (it would spend
+          # Gareth's plan) and never passes this check.
+          if [ "$HEAD_REPO" != "$GITHUB_REPOSITORY" ]; then
+            status failure "PRs from forks are not accepted"
+            exit 0
+          fi
           if [[ ! "$HEAD_REF" =~ ^claude/p-[0-9]{8}T[0-9]{4}Z$ ]]; then
             status success "not a proposal"
             exit 0
