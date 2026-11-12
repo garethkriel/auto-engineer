@@ -1,0 +1,34 @@
+# Required check "guard": fails any PR that touches a protected path.
+# pull_request_target runs this file and eval/guard.py from main, never
+# from the PR, so a PR cannot weaken the guard. It never checks out or
+# runs PR code.
+name: guard
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          persist-credentials: false
+
+      - name: List changed files (renames give old and new name)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" \
+            --paginate --jq '.[] | .filename, (.previous_filename // empty)' > "$RUNNER_TEMP/changed.txt"
+          cat "$RUNNER_TEMP/changed.txt"
+
+      - name: Check protected paths
+        run: python3 eval/guard.py --patterns .github/protected-paths.txt --changed "$RUNNER_TEMP/changed.txt"
