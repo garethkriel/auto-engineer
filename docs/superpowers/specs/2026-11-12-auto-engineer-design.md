@@ -58,12 +58,20 @@ Gareth wants an autonomous coding-practice agent built from the AUTO-ENGINEER pr
 - `gh` 2.102.0 is logged in to Gareth's GitHub account with `repo` and `workflow` scopes.
 - No GitHub repo exists for this project yet. This folder is not a git repo.
 
-### Not verified (the builder must check before relying on them)
+### Verified by the probe run, 2026-11-12 (routine `trig_01GaPCNy95W8Xyc9a9RJU8D6`, "AI model" environment)
 
-- Whether a cloud run can call the GitHub REST API (set commit statuses, add labels, merge PRs), or only push via git. This decides how the reviewer's verdict reaches GitHub (section 8.5).
-- Whether a cloud run can clone a GitHub repo that was **not** added to its scheduled task. This decides whether hidden benchmark tests can be kept from the agent (section 8.6).
+- **The GitHub REST API works from a cloud run.** `gh api repos/garethkriel/auto-engineer` returned 200 through the session's proxy, although `gh auth status` calls the placeholder `GH_TOKEN` invalid. The repo's `permissions` field shows Gareth's own role (admin) and doesn't prove what the run itself may write. So the reviewer verdict uses the API variant: a commit status plus a PR comment (section 8.5).
+- **A cloud run can't reach `auto-engineer-bench` via git.** Both `git ls-remote` and `git clone` failed with "could not read Username". The hidden tests stay hidden (section 8.6).
+- The VM has OpenJDK 21.0.12, Maven 3.9.11 and Python 3.11.18, with 4 CPUs and 15 GB of RAM. `mvn dependency:resolve` on the template pom succeeded.
+- **Network:** repo1.maven.org, pypi.org, api.github.com **and example.com** all returned 200. This environment has broad internet access, not the Limited allowlist this spec assumed.
+- **App access (checked by Gareth in GitHub settings):** the Claude GitHub App reaches only `auto-engineer` and has no administration permission.
+
+### Still not verified (check before relying on them)
+
+- Whether the run can actually **write** commit statuses, open PRs and enable auto-merge. This is checked by the first end-to-end PR test.
+- Whether an admin write (repo settings or rulesets) is refused from a cloud run. It should be, given the App's permissions, but no write has been tried yet. Test it with a no-op write before go-live.
+- Whether the REST API (as opposed to git) is refused for `auto-engineer-bench`. It should be, since the App isn't installed there, but this hasn't been tested yet.
 - GitHub Actions minute quota for private repos on Gareth's GitHub plan. Hourly PRs mean roughly 720 CI runs a month (section 8.8).
-- Whether the Claude GitHub App's access lets a cloud run change repo settings or rulesets. If it does, the agent could switch off its own locks (section 8.4).
 
 ## 6. Approaches considered
 
