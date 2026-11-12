@@ -1,0 +1,17 @@
+# Trigger only. A benchmark run pushes claude/bench-* and this workflow runs
+# from that branch's YAML, so it is untrusted and does nothing privileged.
+# Its completion triggers benchmark-score.yml, which always runs main's YAML
+# (workflow_run), so a rigged bench branch can't rig its own score.
+name: bench-pushed
+
+on:
+  push:
+    branches: ["claude/bench-**"]
+
+permissions: {}
+
+jobs:
+  announce:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Benchmark solutions pushed to $GITHUB_REF_NAME; benchmark-score (from main) scores them."

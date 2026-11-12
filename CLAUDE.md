@@ -93,6 +93,7 @@ Proposals let you change your own workflow: this file, `curriculum/`, `languages
 
 - A proposal is its own PR from branch `claude/p-<run-id>`. It contains the change plus `proposals/<run-id>.md`, with the headings Change, Reason, Expected benefit and Evidence. Leave Evidence empty: CI fills it with benchmark results.
 - CI benchmarks the branch twice. It merges only if the AI reviewer approves and both runs beat `main`'s recent median in at least one language, with no language falling below it.
+- A proposal is immutable: never push more commits to an open proposal PR, because CI fails it. To revise a proposal, open a new one.
 - Never touch protected paths (see `rules/safety.md`).
 
 ## Reviewer feedback

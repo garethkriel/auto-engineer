@@ -1,0 +1,48 @@
+# Required check "benchmark" on every PR to main (rulesets match the base
+# branch, not the head):
+#   - a newly opened proposal PR (claude/p-<run-id>) gets "pending" and fires
+#     benchmark run 1. benchmark-score.yml fires run 2 and sets the verdict.
+#   - a proposal that gets new commits after opening fails: proposals are
+#     immutable, so open a new one instead.
+#   - any other PR passes at once ("not a proposal").
+# pull_request_target runs main's copy of this file and never checks out PR code.
+name: proposal-bench
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+
+permissions:
+  statuses: write
+
+jobs:
+  benchmark-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set the benchmark status, and fire run 1 for new proposals
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ACTION: ${{ github.event.action }}
+          HEAD_REF: ${{ github.head_ref }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          FIRE_URL: ${{ secrets.FIRE_URL }}
+          FIRE_TOKEN: ${{ secrets.FIRE_TOKEN }}
+        run: |
+          status() {
+            gh api "repos/$GITHUB_REPOSITORY/statuses/$HEAD_SHA" \
+              -f state="$1" -f context=benchmark -f description="$2" > /dev/null
+          }
+          if [[ ! "$HEAD_REF" =~ ^claude/p-[0-9]{8}T[0-9]{4}Z$ ]]; then
+            status success "not a proposal"
+            exit 0
+          fi
+          if [ "$ACTION" != "opened" ]; then
+            status failure "proposal changed after opening; open a new proposal PR"
+            exit 0
+          fi
+          config="${HEAD_REF#claude/}"
+          status pending "benchmark run 1 of 2 requested"
+          body=$(python3 -c 'import json,sys; print(json.dumps({"text": sys.argv[1]}))' \
+            "Run AUTO-ENGINEER benchmark mode on branch $HEAD_REF, config $config.")
+          curl -fsS -X POST "$FIRE_URL" -H "Authorization: Bearer $FIRE_TOKEN" -H "Content-Type: application/json" -d "$body"
