@@ -4,3 +4,4 @@
 - Language: java
 - Tags: arrays, rotation, edge-cases, floorMod, OptionalInt
 - Source round: practice/java/20261113T0757Z
+- **Tests:** `mvn -q -B test` (14 tests; extremes, order-independence, fresh-array return)
