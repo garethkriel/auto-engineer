@@ -11,8 +11,10 @@ ROOT = Path(__file__).resolve().parent.parent
 REQUIRED_PATTERNS = {
     "rules/*",
     "review/*",
+    ".claude/*",
     ".claude/settings.json",
     ".claude/settings.local.json",
+    ".mcp.json",
     ".github/*",
     "benchmark/*",
     "eval/*",

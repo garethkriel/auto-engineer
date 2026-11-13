@@ -1,0 +1,64 @@
+# Required check "ai-review". The cloud reviewer can't write commit statuses
+# or use GraphQL (its proxy blocks both), so its verdict is a PR comment.
+# This workflow turns that comment into the status. issue_comment always runs
+# main's copy of this file. It acts only on comments that:
+#   - are written by the repo owner account (garethkriel, OWNER association),
+#   - start with "AI-REVIEW: APPROVE" or "AI-REVIEW: REJECT",
+#   - are on an open PR from a claude/practice-*, claude/maint-* or claude/p-*
+#     branch of this repo (never a fork).
+# APPROVE -> ai-review=success on the PR's current head, plus auto-merge
+#            (squash). It merges once guard, tests and benchmark are also green.
+# REJECT  -> ai-review=failure.
+name: ai-review
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+  statuses: write
+
+concurrency:
+  group: ai-review-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  verdict:
+    if: >-
+      github.event.issue.pull_request &&
+      github.event.comment.user.login == 'garethkriel' &&
+      github.event.comment.author_association == 'OWNER' &&
+      (startsWith(github.event.comment.body, 'AI-REVIEW: APPROVE') ||
+       startsWith(github.event.comment.body, 'AI-REVIEW: REJECT'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Turn the verdict comment into the ai-review status
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+          BODY: ${{ github.event.comment.body }}
+          COMMENT_URL: ${{ github.event.comment.html_url }}
+        run: |
+          pr=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$NUMBER")
+          state=$(jq -r .state <<<"$pr")
+          head_repo=$(jq -r .head.repo.full_name <<<"$pr")
+          head_ref=$(jq -r .head.ref <<<"$pr")
+          sha=$(jq -r .head.sha <<<"$pr")
+          if [ "$head_repo" != "$GITHUB_REPOSITORY" ]; then echo "fork PR: ignored"; exit 0; fi
+          if [[ ! "$head_ref" =~ ^claude/(practice|maint|p)- ]]; then echo "not an agent branch: ignored"; exit 0; fi
+          case "$BODY" in
+            "AI-REVIEW: APPROVE"*) verdict=success; desc="approved by AI reviewer" ;;
+            *)                     verdict=failure; desc="rejected by AI reviewer" ;;
+          esac
+          gh api "repos/$GITHUB_REPOSITORY/statuses/$sha" -f state="$verdict" -f context=ai-review \
+            -f description="$desc" -f target_url="$COMMENT_URL" > /dev/null
+          echo "ai-review=$verdict on $sha (PR #$NUMBER, $head_ref)"
+          if [ "$verdict" = success ] && [ "$state" = open ]; then
+            # The reviewer approves last, so the PR is usually already green:
+            # merge it now. If other checks are still running, fall back to
+            # auto-merge. --match-head-commit refuses if the head moved.
+            gh pr merge "$NUMBER" --repo "$GITHUB_REPOSITORY" --squash --match-head-commit "$sha" \
+              || gh pr merge "$NUMBER" --repo "$GITHUB_REPOSITORY" --auto --squash --match-head-commit "$sha"
+          fi

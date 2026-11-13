@@ -5,8 +5,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from eval.validate_round import (append_only_violations, maven_dirs_to_test,
-                                 self_mod_violations, validate_round)
+from eval.validate_round import (allowlist_violations, append_only_violations, is_proposal,
+                                 maven_dirs_to_test, self_mod_violations, validate_round)
 
 ROOT = Path(__file__).resolve().parent.parent
 RUN = "20261113T0900Z"
@@ -96,14 +96,51 @@ class AppendOnlyTest(unittest.TestCase):
         self.assertEqual(append_only_violations([("A", "skills/java/new/pom.xml")], "claude/practice-X"), [])
 
 
+PROPOSAL = "claude/p-20261113T0900Z"
+
+
 class SelfModTest(unittest.TestCase):
     def test_practice_pr_editing_claude_md_rejected(self):
         self.assertEqual(len(self_mod_violations([("M", "CLAUDE.md")], "claude/practice-X")), 1)
-        self.assertEqual(self_mod_violations([("M", "CLAUDE.md")], "claude/p-X"), [])
+        self.assertEqual(self_mod_violations([("M", "CLAUDE.md")], PROPOSAL), [])
 
     def test_tools_and_templates_are_self_mod(self):
         changes = [("M", "tools/curriculum.py"), ("A", "templates/java/x.xml")]
         self.assertEqual(len(self_mod_violations(changes, "claude/maint-X")), 2)
+
+    def test_loose_proposal_name_is_not_a_proposal(self):
+        # Only the exact claude/p-<run-id> form gets the benchmark gate, so only it may self-modify.
+        for head in ["claude/p-20261113T0900Z-fix", "claude/p-x", "claude/p-"]:
+            with self.subTest(head=head):
+                self.assertEqual(len(self_mod_violations([("M", "CLAUDE.md")], head)), 1)
+
+    def test_nested_claude_md_and_agent_config_are_self_mod(self):
+        changes = [("A", "skills/java/x/CLAUDE.md"), ("A", "CLAUDE.local.md"), ("A", ".mcp.json")]
+        self.assertEqual(len(self_mod_violations(changes, "claude/maint-X")), 3)
+
+
+class AllowlistTest(unittest.TestCase):
+    def test_practice_may_only_touch_round_files(self):
+        changes = [("A", ".claude/agents/x.md"), ("A", "docs/x.md"),
+                   ("A", "practice/java/R/pom.xml"), ("A", "lessons/entries/R.md"),
+                   ("A", "logs/runs/R.md"), ("A", "skills/java/s/pom.xml")]
+        v = allowlist_violations(changes, "claude/practice-X")
+        self.assertEqual(len(v), 2, v)
+        self.assertTrue(any(".claude/agents/x.md" in x for x in v))
+
+    def test_maint_may_touch_rules_practice_may_not(self):
+        self.assertEqual(allowlist_violations([("M", "lessons/RULES.md")], "claude/maint-X"), [])
+        self.assertEqual(len(allowlist_violations([("M", "lessons/RULES.md")], "claude/practice-X")), 1)
+
+    def test_proposals_and_other_heads_not_allowlisted(self):
+        self.assertEqual(allowlist_violations([("M", "CLAUDE.md")], PROPOSAL), [])
+        self.assertEqual(allowlist_violations([("A", "docs/x.md")], "build/fix"), [])
+
+    def test_proposal_name_is_strict(self):
+        self.assertTrue(is_proposal(PROPOSAL))
+        for head in ["claude/p-20261113T0900Z-fix", "claude/p-x", "claude/practice-20261113T0900Z"]:
+            with self.subTest(head=head):
+                self.assertFalse(is_proposal(head))
 
 
 class CliTest(unittest.TestCase):

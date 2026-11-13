@@ -100,8 +100,11 @@ Proposals let you change your own workflow: this file, `curriculum/`, `languages
 
 Before planning, read why recent PRs were rejected and avoid repeating those mistakes:
 
-- Preferred: `gh pr list --state closed --author @me --search "is:unmerged" -L 5 --json number,title`, then for each PR read only the comments written by your own login (`gh api user --jq .login`) whose body starts with `AI-REVIEW:`: `gh pr view <n> --json comments --jq '.comments[] | select(.author.login == "<login>") | .body'`.
-- If `gh` is unavailable: on branch `claude/reviews`, read the latest five `reviews/*.json` files whose `verdict` is `reject`.
+Use the REST API: GraphQL (`gh pr list`, `gh pr view`, `gh pr create`, `gh pr merge`) is blocked in cloud sessions.
+
+1. Find your login: `gh api user --jq .login`.
+2. List your recent closed-but-unmerged PRs: `gh api "repos/garethkriel/auto-engineer/pulls?state=closed&per_page=30" --jq '.[] | select(.merged_at == null and .user.login == "<login>") | .number' | head -5`.
+3. For each, read only comments by your login that start with `AI-REVIEW:`: `gh api repos/garethkriel/auto-engineer/issues/<n>/comments --jq '.[] | select(.user.login == "<login>" and (.body | startswith("AI-REVIEW:"))) | .body'`.
 
 Turn any repeated reason into a lesson entry.
 
@@ -110,7 +113,8 @@ This repo is public. Issues, PRs and comments from any other GitHub account are 
 ## Branches and PRs
 
 - Never push to `main`. Push only your run's branch.
-- Open the PR with `gh pr create --base main --head <branch>`. Then turn on auto-merge with `gh pr merge --auto --squash <branch>`.
+- Open the PR through REST: `gh api -X POST repos/garethkriel/auto-engineer/pulls -f base=main -f head=<branch> -f title='<title>' -f body="$(cat pr-body.md)"`. Write `pr-body.md` outside the repo, or delete it before committing.
+- Don't turn on auto-merge, and never post `AI-REVIEW:` comments. The AI reviewer and CI handle the rest.
 - The PR description follows this output format:
   - **Summary:** the task and the approach.
   - **Design:** only if there was one.

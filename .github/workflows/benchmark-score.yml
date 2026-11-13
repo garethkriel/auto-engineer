@@ -1,12 +1,14 @@
 # Scores a benchmark run with the hidden tests and records it (spec 8.6).
 # workflow_run always executes main's copy of this file and main's eval/ code.
-#   run-tests: runs untrusted solution code. No write secret is reachable from
-#              the build steps. Uploads counts-only reports, no test output.
+#   run-tests: runs untrusted solution code. It holds only a read-only token
+#              for the hidden tests and no maven cache save. It uploads
+#              counts-only reports, with no test names or output.
 #   score:     trusted. Scores the reports, appends scores/history.csv in
-#              auto-engineer-bench, and for proposals fires the second run or
-#              sets the "benchmark" status on the proposal PR.
-# Residual risk (accepted, noted in the ledger): code under test could
-# tamper with its own job's reports.
+#              auto-engineer-bench (once per run id), and for proposals fires
+#              the second run or sets the "benchmark" status on the proposal PR.
+# Secrets live in the "bench" environment, which only main may use.
+# Residual risk (accepted, ledger): code under test could tamper with its own
+# job's reports, or read the hidden tests it is being scored with.
 name: benchmark-score
 
 on:
@@ -23,14 +25,20 @@ concurrency:
 
 jobs:
   run-tests:
-    if: startsWith(github.event.workflow_run.head_branch, 'claude/bench-')
+    # Only branch pushes to this repo, never runs started from a fork's PR.
+    if: >-
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_repository.full_name == github.repository &&
+      startsWith(github.event.workflow_run.head_branch, 'claude/bench-')
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    environment: bench
+    timeout-minutes: 150
     outputs:
       config: ${{ steps.ref.outputs.config }}
       run_id: ${{ steps.ref.outputs.run_id }}
+      bench_sha: ${{ github.event.workflow_run.head_sha }}
     steps:
-      - name: Check out main (trusted template and task list)
+      - name: Check out main (trusted task list)
         uses: actions/checkout@v4
         with:
           ref: main
@@ -50,28 +58,28 @@ jobs:
           path: sol
           persist-credentials: false
 
-      - name: Check out hidden tests
+      - name: Check out hidden tests and the scoring pom (read-only token)
         uses: actions/checkout@v4
         with:
           repository: ${{ github.repository_owner }}/auto-engineer-bench
-          token: ${{ secrets.BENCH_TOKEN }}
+          token: ${{ secrets.BENCH_READ_TOKEN }}
           path: bench
           persist-credentials: false
 
+      # No cache: a cache saved after untrusted code ran could be poisoned.
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "21"
-          cache: maven
-          cache-dependency-path: main/templates/java/pom.xml
 
-      - name: Assemble one project per task, then drop the hidden-test checkout
+      - name: Assemble one project per task, then drop the checkouts
         run: |
           for task in main/benchmark/java/*/; do
             id=$(basename "$task")
             proj="work/java/$id"
             mkdir -p "$proj/src/main"
-            sed "s|<artifactId>CHANGE_ME</artifactId>|<artifactId>$id</artifactId>|" main/templates/java/pom.xml > "$proj/pom.xml"
+            # The pom comes from the bench repo, which the agent can't change.
+            sed "s|<artifactId>CHANGE_ME</artifactId>|<artifactId>$id</artifactId>|" bench/templates/pom.xml > "$proj/pom.xml"
             # Only src/main/java: no resources, so no JUnit config or extensions can be smuggled in.
             if [ -d "sol/bench-solutions/java/$id/src/main/java" ]; then
               cp -r "sol/bench-solutions/java/$id/src/main/java" "$proj/src/main/java"
@@ -95,6 +103,10 @@ jobs:
         run: |
           python3 - <<'PY'
           import pathlib, xml.etree.ElementTree as ET
+          reports = pathlib.Path("reports")
+          reports.mkdir(exist_ok=True)
+          # Always present, so the artifact is never empty (an all-failing run still scores 0).
+          (reports / "MANIFEST").write_text("counts-only benchmark reports\n")
           for proj in sorted(pathlib.Path("work/java").iterdir()):
               if not proj.is_dir():
                   continue
@@ -109,7 +121,7 @@ jobs:
                   for s in [root] if root.tag == "testsuite" else root.findall("testsuite"):
                       for k in totals:
                           totals[k] += int(s.get(k, "0"))
-              out = pathlib.Path("reports/java") / proj.name / "target" / "surefire-reports"
+              out = reports / "java" / proj.name / "target" / "surefire-reports"
               out.mkdir(parents=True, exist_ok=True)
               if files:
                   attrs = " ".join(f'{k}="{v}"' for k, v in totals.items())
@@ -121,11 +133,12 @@ jobs:
           name: reports
           path: reports
           retention-days: 1
-          if-no-files-found: warn
+          if-no-files-found: error
 
   score:
     needs: run-tests
     runs-on: ubuntu-latest
+    environment: bench
     permissions:
       contents: read
       statuses: write
@@ -133,6 +146,7 @@ jobs:
     env:
       CONFIG: ${{ needs.run-tests.outputs.config }}
       RUN_ID: ${{ needs.run-tests.outputs.run_id }}
+      BENCH_SHA: ${{ needs.run-tests.outputs.bench_sha }}
     steps:
       - name: Check out main (trusted scoring code)
         uses: actions/checkout@v4
@@ -153,18 +167,22 @@ jobs:
           token: ${{ secrets.BENCH_TOKEN }}
           path: bench
 
-      - name: Score and append to history
+      - name: Score and append to history (once per run id)
+        id: record
         run: |
           mkdir -p reports/java
           python3 main/eval/score.py --benchmark main/benchmark --solutions reports --out rates.json
-          python3 - <<'PY'
+          recorded=$(python3 - <<'PY'
           import json, os, sys, datetime
           sys.path.insert(0, "main")
           from eval.history import append_rows
           ts = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-          append_rows("bench/scores/history.csv", ts, os.environ["CONFIG"], os.environ["RUN_ID"],
-                      json.load(open("rates.json")))
+          print("yes" if append_rows("bench/scores/history.csv", ts, os.environ["CONFIG"],
+                                     os.environ["RUN_ID"], json.load(open("rates.json"))) else "no")
           PY
+          )
+          echo "recorded=$recorded" >> "$GITHUB_OUTPUT"
+          if [ "$recorded" != yes ]; then echo "run $CONFIG $RUN_ID already recorded; nothing to do"; exit 0; fi
           cd bench
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -174,19 +192,27 @@ jobs:
           git push -q
 
       - name: Proposal - fire the second run, or set the verdict
-        if: startsWith(env.CONFIG, 'p-')
+        if: startsWith(env.CONFIG, 'p-') && steps.record.outputs.recorded == 'yes'
         env:
           GH_TOKEN: ${{ github.token }}
           FIRE_URL: ${{ secrets.FIRE_URL }}
           FIRE_TOKEN: ${{ secrets.FIRE_TOKEN }}
         run: |
           branch="claude/$CONFIG"
-          runs=$(python3 -c "import sys; sys.path.insert(0, 'main'); from eval.history import proposal_runs; print(len(proposal_runs('bench/scores/history.csv', '$CONFIG')))")
-          pr_json=$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$branch" --state open --json number,headRefOid --jq '.[0] // empty')
+          runs=$(python3 -c "import sys; sys.path.insert(0, 'main'); from eval.history import proposal_runs; print(len(proposal_runs('bench/scores/history.csv', sys.argv[1])))" "$CONFIG")
+          pr_json=$(gh api "repos/$GITHUB_REPOSITORY/pulls?state=open&head=$GITHUB_REPOSITORY_OWNER:$branch" --jq '.[0] // empty')
           if [ -z "$pr_json" ]; then echo "no open PR for $branch; recorded only"; exit 0; fi
-          number=$(echo "$pr_json" | python3 -c "import json,sys; print(json.load(sys.stdin)['number'])")
-          sha=$(echo "$pr_json" | python3 -c "import json,sys; print(json.load(sys.stdin)['headRefOid'])")
-          if [ "$runs" -lt 2 ]; then
+          number=$(jq -r .number <<<"$pr_json")
+          sha=$(jq -r .head.sha <<<"$pr_json")
+          # Immutability: the proposal head must be an ancestor of (or equal to)
+          # the commit this benchmark ran on. If the proposal moved, fail it.
+          rel=$(gh api "repos/$GITHUB_REPOSITORY/compare/$sha...$BENCH_SHA" --jq .status)
+          if [ "$rel" != ahead ] && [ "$rel" != identical ]; then
+            gh api "repos/$GITHUB_REPOSITORY/statuses/$sha" -f state=failure -f context=benchmark \
+              -f description="proposal changed after benchmarking; open a new proposal PR" > /dev/null
+            exit 0
+          fi
+          if [ "$runs" -eq 1 ]; then
             body=$(python3 -c 'import json,sys; print(json.dumps({"text": sys.argv[1]}))' \
               "Run AUTO-ENGINEER benchmark mode on branch $branch, config $CONFIG.")
             curl -fsS -X POST "$FIRE_URL" -H "Authorization: Bearer $FIRE_TOKEN" -H "Content-Type: application/json" -d "$body"
@@ -199,4 +225,5 @@ jobs:
             state=failure; desc="no improvement over main (hold)"
           fi
           gh api "repos/$GITHUB_REPOSITORY/statuses/$sha" -f state="$state" -f context=benchmark -f description="$desc" > /dev/null
-          gh pr comment "$number" --repo "$GITHUB_REPOSITORY" --body "Benchmark evidence for \`$CONFIG\` (last run $RUN_ID): pass rates $(cat rates.json). Verdict: **$state**, $desc."
+          gh api -X POST "repos/$GITHUB_REPOSITORY/issues/$number/comments" \
+            -f body="Benchmark evidence for \`$CONFIG\` (last run $RUN_ID): pass rates $(cat rates.json). Verdict: **$state**, $desc." > /dev/null

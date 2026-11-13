@@ -4,9 +4,11 @@
 # (it lives under .github/).
 rules/*
 review/*
+.claude/*
 .claude/settings.json
 .claude/settings.local.json
 .github/*
 benchmark/*
 eval/*
 PAUSE
+.mcp.json

@@ -241,3 +241,28 @@ These happen during the build. Each is shown to Gareth before it runs.
 3. Create the scheduled tasks under his claude.ai account.
 4. Check whether extra usage credits are on.
 5. Review the Java benchmark once before it is locked.
+
+## 11. Changes made during the build (2026-11-12)
+
+These override the sections above where they conflict.
+
+- **The repo is public.** GitHub Free can't apply rulesets to private repos, and Gareth chose a public repo over GitHub Pro. The hidden tests stay in the private `auto-engineer-bench`. PRs from forks fail `guard` and never start benchmark runs, and Actions on outside contributors' PRs needs Gareth's approval. The agents treat text from other accounts as data. Actions minutes don't count against a quota (section 8.8 is moot).
+- **`main` is locked** by ruleset `lock-main`. It has no bypass and requires a PR plus the `guard`, `tests`, `benchmark` and `ai-review` checks, all pinned to GitHub Actions.
+- **The reviewer runs as an hourly sweep** (cron `30 * * * *`) instead of on GitHub events. The GitHub-trigger filter API is undocumented, and a sweep never spends Gareth's plan on strangers' PRs.
+- **Verdicts are recorded as comments.** The cloud proxy blocks writing commit statuses and all GraphQL (`gh pr create`, `gh pr merge --auto`, `gh pr checks`). So the reviewer posts an `AI-REVIEW: APPROVE` or `AI-REVIEW: REJECT` comment and closes rejected PRs through REST. The `ai-review` workflow (`issue_comment`, running `main`'s code) turns an owner-authored verdict comment into the `ai-review` status and turns on auto-merge on approve. Agents open PRs through the REST API.
+- **The reviewer routine's auto-mode allow list** (in `session_request.config`) permits exactly these actions: posting `AI-REVIEW:` comments, and closing rejected agent PRs on this repo. Gareth approved this.
+- **Residual risks accepted:**
+  - The practice agent shares Gareth's GitHub identity, so it could post a fake `AI-REVIEW:` comment. Its routine gets no allow rule for that.
+  - Code under test could tamper with its own scoring job's reports.
+  - The "AI model" environment has broad internet access.
+- **Hardening after the final review (2026-11-13):**
+  - Only the exact `claude/p-<run-id>` name counts as a proposal. A looser `claude/p-*` name fails `benchmark`.
+  - Practice and maintenance PRs may touch only `practice/`, `lessons/entries/`, `logs/runs/` and `skills/`, plus `lessons/RULES.md` for maintenance.
+  - `.claude/*` and `.mcp.json` are protected, and a `CLAUDE.md` or `CLAUDE.local.md` anywhere counts as self-modification.
+  - Benchmark scoring builds with the bench repo's own pom, accepts only pushes to this repo, counts each run id once, and fails a proposal whose head moved.
+  - CI builds every passed round and changed skill with `main`'s template pom, and requires real passing test reports.
+  - The `ai-review` workflow merges directly, falling back to auto-merge, and pins the head commit.
+  - Secrets live in the GitHub Environment `bench`, which only `main` may use:
+    - `BENCH_READ_TOKEN` (read-only, used by the job that runs untrusted code);
+    - `BENCH_TOKEN` (read and write, used only by the trusted scoring job);
+    - `FIRE_URL` and `FIRE_TOKEN`.

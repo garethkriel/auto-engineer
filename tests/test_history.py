@@ -22,6 +22,22 @@ class HistoryTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             self.assertEqual(baselines(Path(d) / "none.csv"), [])
 
+    def test_same_run_id_recorded_once(self):
+        # A re-push or re-run of one benchmark branch must not count as a second run.
+        with tempfile.TemporaryDirectory() as d:
+            csv = Path(d) / "history.csv"
+            self.assertTrue(append_rows(csv, "2026-11-14T05:00:00Z", "p-x", "r1", {"java": 0.9}))
+            self.assertFalse(append_rows(csv, "2026-11-14T05:30:00Z", "p-x", "r1", {"java": 0.9}))
+            self.assertEqual(proposal_runs(csv, "p-x"), [{"java": 0.9}])
+            self.assertEqual(len(csv.read_text(encoding="utf-8").splitlines()), 2)
+
+    def test_same_run_id_in_other_config_is_separate(self):
+        with tempfile.TemporaryDirectory() as d:
+            csv = Path(d) / "history.csv"
+            append_rows(csv, "2026-11-14T02:00:00Z", "main", "r1", {"java": 0.5})
+            self.assertTrue(append_rows(csv, "2026-11-14T05:00:00Z", "p-x", "r1", {"java": 0.6}))
+            self.assertEqual(len(proposal_runs(csv, "p-x")), 1)
+
 
 if __name__ == "__main__":
     unittest.main()
