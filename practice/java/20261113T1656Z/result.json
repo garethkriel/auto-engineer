@@ -1,0 +1,1 @@
+{"run_id": "20261113T1656Z", "language": "java", "level": 3, "topic": "List/Map, sorting with Comparator, StringBuilder", "task": "WordStats: tokenize, top-N words with Comparator tie-breaks, group by length with sorted collections", "passed": true, "attempts": 1}
