@@ -1,0 +1,1 @@
+{"run_id": "20261113T1002Z", "language": "java", "level": 2, "topic": "equals/hashCode, toString, constructors (value class)", "task": "Immutable Fraction value class: reduction, parse, exact arithmetic, overflow-safe compareTo, equals/hashCode/toString", "passed": true, "attempts": 3}
