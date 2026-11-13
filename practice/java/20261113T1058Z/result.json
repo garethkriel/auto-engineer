@@ -1,0 +1,1 @@
+{"run_id": "20261113T1058Z", "language": "java", "level": 2, "topic": "classes and objects, static vs instance", "task": "Immutable Interval class with static factory, static created-counter, overlap/merge and mergeAll", "passed": true, "attempts": 1}
