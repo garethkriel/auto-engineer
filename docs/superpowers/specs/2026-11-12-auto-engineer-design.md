@@ -255,3 +255,14 @@ These override the sections above where they conflict.
   - The practice agent shares Gareth's GitHub identity, so it could post a fake `AI-REVIEW:` comment. Its routine gets no allow rule for that.
   - Code under test could tamper with its own scoring job's reports.
   - The "AI model" environment has broad internet access.
+- **Hardening after the final review (2026-11-13):**
+  - Only the exact `claude/p-<run-id>` name counts as a proposal. A looser `claude/p-*` name fails `benchmark`.
+  - Practice and maintenance PRs may touch only `practice/`, `lessons/entries/`, `logs/runs/` and `skills/`, plus `lessons/RULES.md` for maintenance.
+  - `.claude/*` and `.mcp.json` are protected, and a `CLAUDE.md` or `CLAUDE.local.md` anywhere counts as self-modification.
+  - Benchmark scoring builds with the bench repo's own pom, accepts only pushes to this repo, counts each run id once, and fails a proposal whose head moved.
+  - CI builds every passed round and changed skill with `main`'s template pom, and requires real passing test reports.
+  - The `ai-review` workflow merges directly, falling back to auto-merge, and pins the head commit.
+  - Secrets live in the GitHub Environment `bench`, which only `main` may use:
+    - `BENCH_READ_TOKEN` (read-only, used by the job that runs untrusted code);
+    - `BENCH_TOKEN` (read and write, used only by the trusted scoring job);
+    - `FIRE_URL` and `FIRE_TOKEN`.

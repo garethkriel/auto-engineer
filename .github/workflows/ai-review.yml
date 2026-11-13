@@ -56,5 +56,9 @@ jobs:
             -f description="$desc" -f target_url="$COMMENT_URL" > /dev/null
           echo "ai-review=$verdict on $sha (PR #$NUMBER, $head_ref)"
           if [ "$verdict" = success ] && [ "$state" = open ]; then
-            gh pr merge "$NUMBER" --repo "$GITHUB_REPOSITORY" --auto --squash
+            # The reviewer approves last, so the PR is usually already green:
+            # merge it now. If other checks are still running, fall back to
+            # auto-merge. --match-head-commit refuses if the head moved.
+            gh pr merge "$NUMBER" --repo "$GITHUB_REPOSITORY" --squash --match-head-commit "$sha" \
+              || gh pr merge "$NUMBER" --repo "$GITHUB_REPOSITORY" --auto --squash --match-head-commit "$sha"
           fi

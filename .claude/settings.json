@@ -16,7 +16,11 @@
       "Edit(eval/**)",
       "Write(eval/**)",
       "Edit(PAUSE)",
-      "Write(PAUSE)"
+      "Write(PAUSE)",
+      "Edit(.claude/**)",
+      "Write(.claude/**)",
+      "Edit(.mcp.json)",
+      "Write(.mcp.json)"
     ]
   }
 }

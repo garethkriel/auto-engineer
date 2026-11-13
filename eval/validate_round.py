@@ -16,13 +16,26 @@ Exit 0 = valid, 1 = errors printed.
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
 
 APPEND_ONLY = ("practice/", "lessons/entries/", "logs/runs/")
 MAINT_EDITABLE = ("skills/", "lessons/RULES.md")
-SELF_MOD = ("CLAUDE.md", "curriculum/", "languages/", "prompts/", "tools/", "templates/", "tests/")
+SELF_MOD = ("CLAUDE.md", "curriculum/", "languages/", "prompts/", "tools/", "templates/", "tests/",
+            ".mcp.json", ".claude/")
+# Files Claude Code loads as instructions wherever they sit in the tree.
+AGENT_INSTRUCTION_NAMES = ("CLAUDE.md", "CLAUDE.local.md")
+# The only paths practice and maintenance PRs may touch (allowlist).
+PRACTICE_ALLOWED = APPEND_ONLY + ("skills/",)
+MAINT_ALLOWED = PRACTICE_ALLOWED + ("lessons/RULES.md",)
+# Exactly the form proposal-bench.yml benchmarks; anything looser is not a proposal.
+_PROPOSAL_REF = re.compile(r"claude/p-[0-9]{8}T[0-9]{4}Z")
+
+
+def is_proposal(head_ref: str) -> bool:
+    return _PROPOSAL_REF.fullmatch(head_ref) is not None
 
 RESULT_SCHEMA = {"run_id": str, "language": str, "level": int, "topic": str,
                  "task": str, "passed": bool, "attempts": int}
@@ -77,7 +90,7 @@ def validate_round(repo: Path, round_dir: Path) -> list[str]:
 
 def append_only_violations(changes: list[tuple[str, str]], head_ref: str) -> list[str]:
     """Non-add changes to append-only paths; skills/RULES.md edits outside maint/proposal PRs."""
-    may_edit_library = head_ref.startswith(("claude/maint-", "claude/p-"))
+    may_edit_library = head_ref.startswith("claude/maint-") or is_proposal(head_ref)
     violations = []
     for status, path in changes:
         if status == "A":
@@ -91,10 +104,23 @@ def append_only_violations(changes: list[tuple[str, str]], head_ref: str) -> lis
 
 def self_mod_violations(changes: list[tuple[str, str]], head_ref: str) -> list[str]:
     """Any change to a self-modification path outside a proposal PR."""
-    if head_ref.startswith("claude/p-"):
+    if is_proposal(head_ref):
         return []
-    return [f"{status} {path}: workflow change, only allowed in a claude/p-* proposal PR"
-            for status, path in changes if _under(path, SELF_MOD)]
+    return [f"{status} {path}: workflow change, only allowed in a claude/p-<run-id> proposal PR"
+            for status, path in changes
+            if _under(path, SELF_MOD) or path.rsplit("/", 1)[-1] in AGENT_INSTRUCTION_NAMES]
+
+
+def allowlist_violations(changes: list[tuple[str, str]], head_ref: str) -> list[str]:
+    """Practice and maintenance PRs may touch only their own round and library paths."""
+    if head_ref.startswith("claude/practice-"):
+        allowed = PRACTICE_ALLOWED
+    elif head_ref.startswith("claude/maint-"):
+        allowed = MAINT_ALLOWED
+    else:
+        return []
+    return [f"{status} {path}: outside the paths a {head_ref.split('-')[0]} PR may touch"
+            for status, path in changes if not _under(path, allowed)]
 
 
 def added_round_dirs(repo: Path, changes: list[tuple[str, str]]) -> list[Path]:
@@ -145,7 +171,9 @@ def main(argv: list[str] | None = None) -> int:
 
     repo = Path(".").resolve()
     changes = git_changes(args.base)
-    errors = append_only_violations(changes, args.head_ref) + self_mod_violations(changes, args.head_ref)
+    errors = (append_only_violations(changes, args.head_ref)
+              + self_mod_violations(changes, args.head_ref)
+              + allowlist_violations(changes, args.head_ref))
     for rd in added_round_dirs(repo, changes):
         errors += validate_round(repo, rd)
 
