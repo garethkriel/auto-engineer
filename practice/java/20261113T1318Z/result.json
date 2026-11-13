@@ -1,0 +1,1 @@
+{"run_id": "20261113T1318Z", "language": "java", "level": 2, "topic": "classes and objects, constructors", "task": "Immutable closed integer Interval with validated constructor, parse factory, overlap/merge/intersection and mergeAll", "passed": true, "attempts": 1}
