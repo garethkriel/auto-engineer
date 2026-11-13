@@ -1,0 +1,1 @@
+{"run_id": "20261113T1544Z", "language": "java", "level": 2, "topic": "classes and objects, constructors (immutable range value class)", "task": "Implement immutable half-open IntRange with overlaps/merge/equals/hashCode/toString", "passed": true, "attempts": 1}
