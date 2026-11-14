@@ -1,0 +1,1 @@
+{"run_id": "20261114T0500Z", "language": "java", "level": 5, "topic": "generics, interfaces, enums, records (typesafe heterogeneous container, enum state machine)", "task": "TypedMap with TypedKey<T> record, generic enum StateMachine<S extends Enum<S>> and OrderState enum", "passed": true, "attempts": 1}
