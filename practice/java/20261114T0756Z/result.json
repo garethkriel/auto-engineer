@@ -1,0 +1,1 @@
+{"run_id": "20261114T0756Z", "language": "java", "level": 6, "topic": "java.nio.file I/O, @TempDir, parameterised tests", "task": "Append-only file-backed key-value store with escaping, torn-write recovery and atomic compaction", "passed": true, "attempts": 1}
