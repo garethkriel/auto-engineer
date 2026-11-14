@@ -1,0 +1,1 @@
+{"run_id": "20261114T0356Z", "language": "java", "level": 5, "topic": "generics, interfaces, enums, records", "task": "Generic sealed Result<T,E> with records, bounded/wildcard generic helpers, and a Severity enum with Result-returning parse", "passed": true, "attempts": 1}
