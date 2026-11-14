@@ -1,0 +1,1 @@
+{"run_id": "20261114T1556Z", "language": "java", "level": 8, "topic": "design patterns (command with self-inverting apply, undo/redo history)", "task": "Command-pattern undo/redo text Editor with self-inverting commands, atomic macros, bounded history and dirty tracking", "passed": true, "attempts": 1}
