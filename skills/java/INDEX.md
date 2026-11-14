@@ -18,4 +18,3 @@ All skills pass `mvn -q -B test` (verified 20261114T0657Z). See each folder's RE
 | typed-container-state-machine | type tokens, EnumMap state machine |
 | typed-event-bus | observer bus with snapshot dispatch |
 | typed-result | sealed Result, PECS helpers |
-| validator-lazy | error-accumulating Validator, memoising Lazy |
