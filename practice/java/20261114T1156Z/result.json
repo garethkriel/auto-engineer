@@ -1,0 +1,1 @@
+{"run_id": "20261114T1156Z", "language": "java", "level": 7, "topic": "lambdas, functional interfaces (composable Validator, memoising Lazy)", "task": "Error-accumulating composable Validator<T> and thread-safe memoising Lazy<T> in package fn", "passed": true, "attempts": 1}
