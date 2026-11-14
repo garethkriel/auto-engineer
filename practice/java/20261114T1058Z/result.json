@@ -1,0 +1,1 @@
+{"run_id": "20261114T1058Z", "language": "java", "level": 7, "topic": "Streams and collectors, lambdas, functional interfaces, immutability (custom Collector, predicate combinators)", "task": "Order analytics with a custom Collector, partitioning/grouping and composable predicate rules", "passed": true, "attempts": 1}
