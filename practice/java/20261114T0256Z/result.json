@@ -1,0 +1,1 @@
+{"run_id": "20261114T0256Z", "language": "java", "level": 4, "topic": "java.time, Optional, custom checked exception", "task": "BusinessCalendar: business-day arithmetic over weekends/holidays with Optional month-end lookup and checked HolidayFormatException parser", "passed": true, "attempts": 2}
