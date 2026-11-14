@@ -1,0 +1,1 @@
+{"run_id": "20261114T1456Z", "language": "java", "level": 8, "topic": "design patterns (strategy dialects, immutable fluent builder)", "task": "Immutable SelectBuilder producing parameterised SQL with pluggable Dialect strategy", "passed": true, "attempts": 1}
