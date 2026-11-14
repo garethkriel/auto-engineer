@@ -19,3 +19,6 @@ General rules distilled from recurring lessons in `lessons/entries/`. Only maint
 - Callback registries: iterate over a snapshot and test a handler that mutates the registry during dispatch. (20261114T0556Z)
 - Run `mvn -q -B test` once before applying the Maven retry loop; report counts with `mvn -B test | grep "Tests run:"`. (20261114T0356Z)
 - Skills `inverted-index` (topTerms) and `int-range` (merge) overlap benchmark territory; do not extend them in practice rounds. (20261114T0056Z)
+- File persistence: test round trip, overwrite, and that no temp files remain; write via temp file + atomic move in the same directory; build path keys from `Path` name elements joined with `/`; when shifting numbered files, go from the highest index down. (20261114T0857Z, 20261114T0956Z)
+- Memoising wrappers: a separate volatile "done" flag written after the value (never null as sentinel), set only after the supplier succeeds; test null results, failure-then-success and concurrent first access. (20261114T1156Z)
+- Custom Collectors: accumulate an immutable type with an identity element; test `combine(EMPTY)` both ways and a parallel-stream run against the sequential result. (20261114T1058Z)
