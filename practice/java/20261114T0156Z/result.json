@@ -1,0 +1,1 @@
+{"run_id": "20261114T0156Z", "language": "java", "level": 4, "topic": "custom checked exception, Optional, java.time.Duration", "task": "RetryPolicy/Retrier: exponential backoff retry with injectable Sleeper and checked RetryExhaustedException", "passed": true, "attempts": 1}
