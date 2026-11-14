@@ -1,0 +1,1 @@
+{"run_id": "20261114T0556Z", "language": "java", "level": 5, "topic": "generics (wildcards), interfaces, enums, records (typed event bus)", "task": "EventBus with Class<E> subscriptions, Consumer<? super E>, Priority enum, DeliveryReport record", "passed": true, "attempts": 1}
