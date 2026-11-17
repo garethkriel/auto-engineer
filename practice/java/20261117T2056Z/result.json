@@ -1,0 +1,9 @@
+{
+ "run_id": "20261117T2056Z",
+ "language": "java",
+ "level": 13,
+ "topic": "parsers and sealed-interface ASTs with pattern matching (Markdown subset)",
+ "task": "ae.mdlite: strict Markdown subset parser (sealed Block/Inline AST) and safe HTML renderer with line/column errors, URL allow-list and nesting caps",
+ "passed": true,
+ "attempts": 2
+}
