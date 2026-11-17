@@ -1,0 +1,1 @@
+{"run_id": "20261117T2256Z", "language": "java", "level": 14, "topic": "storage: slotted-page record heap, per-page CRC32, atomic flush, corruption detection", "task": "ae.heap: SlottedPage (insert/get/delete/update/compaction/CRC) and HeapFile with Rid, scan and atomic flush", "passed": true, "attempts": 1}
