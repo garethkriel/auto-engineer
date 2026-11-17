@@ -1,0 +1,1 @@
+{"run_id": "20261117T1156Z", "language": "java", "level": 10, "topic": "concurrency: bounded blocking resource pool (thread safety, timeouts)", "task": "pool.ObjectPool<T>: bounded blocking object pool with lazy creation, validation, invalidate, close and slot-safe failure handling", "passed": true, "attempts": 1}
