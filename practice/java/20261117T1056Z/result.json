@@ -1,0 +1,1 @@
+{"run_id": "20261117T1056Z", "language": "java", "level": 10, "topic": "concurrency: thread safety, injectable clock (circuit breaker)", "task": "resilience.CircuitBreaker: CLOSED/OPEN/HALF_OPEN with single probe, generation-tagged stale-result ignore, injectable Clock", "passed": true, "attempts": 1}
