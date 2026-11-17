@@ -1,0 +1,1 @@
+{"run_id": "20261117T0356Z", "language": "java", "level": 9, "topic": "dynamic programming (coin change, 0/1 knapsack, LIS)", "task": "DynamicProgramming toolkit: min coins with reconstruction, overflow-checked countWays, 0/1 knapsack with chosen items, O(n log n) LIS", "passed": true, "attempts": 1}
