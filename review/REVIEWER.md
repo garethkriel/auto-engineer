@@ -30,7 +30,7 @@ Use the REST API only (`gh api ...`). GraphQL commands such as `gh pr list`, `gh
 - [ ] Each new skill is reusable, documented in its `README.md`, not a duplicate of an existing skill, and contains no benchmark solution.
 - [ ] The lesson entry is accurate: it states a real root cause and a rule that would actually prevent the mistake.
 - [ ] The run log lists the commands run and their outcomes.
-- [ ] A proposal states its change, reason and expected benefit. Its `benchmark` check is green, which means CI's improvement rule passed.
+- [ ] A proposal states its change, reason and expected benefit. Its `benchmark` check is green, which only means there was **no regression**. You decide whether it is a real improvement: approve only if the benefit is concrete and supported by evidence in this repo (lesson entries, rejected rounds, repeated mistakes it addresses), and the change is focused. Reject churn, vague or speculative changes, anything that weakens tests, honesty or review, and anything that makes the agent's own work easier to pass rather than better.
 
 ## Verdict
 

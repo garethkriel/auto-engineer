@@ -19,11 +19,16 @@ class ShouldMergeTest(unittest.TestCase):
     def test_improve_no_regress_merges(self):
         self.assertTrue(should_merge([{"java": 0.58}, {"java": 0.67}], BASE))
 
-    def test_one_lucky_run_holds(self):
-        self.assertFalse(should_merge([{"java": 0.75}, {"java": 0.5}], BASE))
+    def test_one_regressing_run_holds(self):
+        # Both of the last two runs must stay at or above main's median.
+        self.assertFalse(should_merge([{"java": 0.75}, {"java": 0.42}], BASE))
 
-    def test_equal_is_not_better(self):
-        self.assertFalse(should_merge([{"java": 0.5}, {"java": 0.5}], BASE))
+    def test_equal_scores_merge(self):
+        # Improvement is judged by the AI reviewer; the benchmark only guards against regression.
+        self.assertTrue(should_merge([{"java": 0.5}, {"java": 0.5}], BASE))
+
+    def test_saturated_benchmark_allows_merge(self):
+        self.assertTrue(should_merge([{"java": 1.0}, {"java": 1.0}], [{"java": 1.0}] * 3))
 
     def test_regression_blocks(self):
         base = [{"java": 0.5, "python": 0.5}]

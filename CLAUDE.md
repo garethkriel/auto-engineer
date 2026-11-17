@@ -92,7 +92,7 @@ The prompt names a branch and a config (`main` or `p-<run-id>`).
 Proposals let you change your own workflow: this file, `curriculum/`, `languages/`, `prompts/`, `tools/`, `templates/` or `tests/`.
 
 - A proposal is its own PR from branch `claude/p-<run-id>`. It contains the change plus `proposals/<run-id>.md`, with the headings Change, Reason, Expected benefit and Evidence. Leave Evidence empty: CI fills it with benchmark results.
-- CI benchmarks the branch twice. It merges only if the AI reviewer approves and both runs beat `main`'s recent median in at least one language, with no language falling below it.
+- CI benchmarks the branch twice. Neither run may fall below `main`'s recent median in any language: the benchmark is a no-regression gate. Whether the change is a real improvement is the AI reviewer's judgement, so the proposal file must make that case with concrete evidence (for example lesson entries or rejected rounds the change would have prevented).
 - A proposal is immutable: never push more commits to an open proposal PR, because CI fails it. To revise a proposal, open a new one.
 - Never touch protected paths (see `rules/safety.md`).
 

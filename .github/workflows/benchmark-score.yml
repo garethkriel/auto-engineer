@@ -220,9 +220,9 @@ jobs:
             exit 0
           fi
           if python3 main/eval/compare.py --csv bench/scores/history.csv --config "$CONFIG"; then
-            state=success; desc="beats main's median, no regression"
+            state=success; desc="no regression against main's median"
           else
-            state=failure; desc="no improvement over main (hold)"
+            state=failure; desc="regression against main's median (hold)"
           fi
           gh api "repos/$GITHUB_REPOSITORY/statuses/$sha" -f state="$state" -f context=benchmark -f description="$desc" > /dev/null
           gh api -X POST "repos/$GITHUB_REPOSITORY/issues/$number/comments" \
