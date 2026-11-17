@@ -65,8 +65,8 @@ def validate_round(repo: Path, round_dir: Path) -> list[str]:
     if not errors:
         if not 1 <= result["attempts"] <= 3:
             errors.append(f"{rel}/result.json: attempts must be 1-3, got {result['attempts']}")
-        if not 1 <= result["level"] <= 10:
-            errors.append(f"{rel}/result.json: level must be 1-10, got {result['level']}")
+        if not 1 <= result["level"] <= 20:
+            errors.append(f"{rel}/result.json: level must be 1-20, got {result['level']}")
         if result["run_id"] != round_dir.name:
             errors.append(f"{rel}/result.json: run_id '{result['run_id']}' does not match folder")
         if result["language"] != round_dir.parent.name:
