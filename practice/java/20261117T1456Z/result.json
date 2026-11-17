@@ -1,0 +1,1 @@
+{"run_id": "20261117T1456Z", "language": "java", "level": 10, "topic": "performance: bit manipulation, data-structure choice, time-bounded tests (bitmask Sudoku solver)", "task": "perf.Sudoku: bitmask Sudoku solver with parse validation, solve, capped countSolutions and isValidSolution", "passed": true, "attempts": 2}
