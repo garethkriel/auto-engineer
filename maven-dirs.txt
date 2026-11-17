@@ -1,2 +1,0 @@
-practice/java/20261117T1556Z
-skills/java/prime-sieve-number-theory
