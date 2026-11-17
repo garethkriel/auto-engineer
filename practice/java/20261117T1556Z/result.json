@@ -1,0 +1,1 @@
+{"run_id": "20261117T1556Z", "language": "java", "level": 12, "topic": "performance: bit-packed sieve, popcount prefix queries, Miller-Rabin and Pollard rho on 64-bit values", "task": "Odd-only bit-packed prime sieve plus 64-bit gcd/modPow/isPrime/factorize with time-bounded tests", "passed": true, "attempts": 1}
