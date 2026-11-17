@@ -1,0 +1,1 @@
+{"run_id": "20261117T0156Z", "language": "java", "level": 8, "topic": "design patterns (chain of responsibility middleware pipeline, router)", "task": "Immutable middleware Pipeline with Router, auth/recover/trace/TTL-cache middlewares", "passed": true, "attempts": 2}
