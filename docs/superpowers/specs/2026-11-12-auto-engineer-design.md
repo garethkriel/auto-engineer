@@ -141,7 +141,7 @@ A scheduled task on cron `0 * * * *` **[Claude's call: top of every hour]**, on 
 
 **Maintenance rounds [Claude's call]:** runs at 00:00, 06:00, 12:00 and 18:00 UTC do the self-improvement upkeep instead of a new task. They merge duplicate skills, strengthen tests and docs, review lessons for recurring mistakes, and update `RULES.md`.
 
-**Curriculum levels [Claude's call]:** each language has levels 1–10 with topics. Three consecutive passes at a level move it up one. Three consecutive failures move it down one and record a lesson. Java topic order starts with fundamentals, then standard library, tooling (Maven, JUnit 5), and idiomatic patterns, as the original prompt describes. The builder writes the full topic list.
+**Curriculum levels [Claude's call]:** each language has levels 1–20 with topics (11–20 added 2026-11-17, after Java reached level 10). Three consecutive passes at a level move it up one. Three consecutive failures move it down one and record a lesson. Java topic order starts with fundamentals, then standard library, tooling (Maven, JUnit 5), and idiomatic patterns, as the original prompt describes. The builder writes the full topic list.
 
 One round per run **[Claude's call]** keeps each run short and plan usage predictable.
 

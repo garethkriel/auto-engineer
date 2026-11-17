@@ -2,7 +2,7 @@
 
 Rule (spec 8.2): start at level 1. Three consecutive passes move up one
 level; three consecutive failures move down one. The streak resets after
-any level change. Levels are clamped to 1..10.
+any level change. Levels are clamped to 1..20.
 
 The level is derived from practice/<lang>/*/result.json instead of being
 stored in a shared file, so overlapping hourly PRs never conflict.
@@ -16,7 +16,7 @@ import json
 import sys
 from pathlib import Path
 
-MIN_LEVEL, MAX_LEVEL, STREAK = 1, 10, 3
+MIN_LEVEL, MAX_LEVEL, STREAK = 1, 20, 3
 
 
 def compute_level(results: list[dict]) -> int:
