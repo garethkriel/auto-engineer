@@ -1,0 +1,1 @@
+{"run_id": "20261117T1756Z", "language": "java", "level": 13, "topic": "language tools: tokeniser, recursive-descent parser, sealed-interface AST, error positions (template engine)", "task": "tpl mini template engine: variables, filters, if/elif/else, for with loop vars, HTML escaping, whitespace control, line/column errors", "passed": true, "attempts": 2}
