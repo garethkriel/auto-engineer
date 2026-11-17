@@ -17,7 +17,6 @@ All skills pass `mvn -q -B test` (verified 20261117T0656Z). See each folder's RE
 | inverted-index | tokenising, set queries, Comparator chains |
 | leaderboard-ranking | competition ranking, grouping |
 | loan-amortization | BigDecimal schedules |
-| micro-batcher | size-or-time batching of single submits into a bulk call, injectable Scheduler |
 | middleware-pipeline | chain-of-responsibility pipeline, router, auth/recover/trace |
 | order-analytics | custom Collector, immutable monoid stats, grouping |
 | parallel-helpers | bounded ordered parallel map, firstSuccess, timeouts |
