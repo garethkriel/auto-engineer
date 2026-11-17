@@ -1,6 +1,6 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (verified 20261117T1257Z). See each folder's README.
+All skills pass `mvn -q -B test` (verified 20261117T1856Z). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
@@ -25,11 +25,15 @@ All skills pass `mvn -q -B test` (verified 20261117T1257Z). See each folder's RE
 | order-analytics | custom Collector, immutable monoid stats, grouping |
 | parallel-helpers | bounded ordered parallel map, firstSuccess, timeouts |
 | persistent-collections | immutable persistent stack and queue |
+| prime-sieve-number-theory | odd-only bit sieve, Miller-Rabin, Pollard-rho, overflow-free modPow |
+| primitive-collections | IntBitSet (rank/select), open-addressing IntIntMap with backward-shift delete |
 | retry-backoff | retry with injectable sleeper |
 | rotating-log | size-based log rotation with numbered backups |
 | single-flight | per-key call coalescing via CompletableFuture |
 | sql-select-builder | immutable parameterised SELECT builder, Dialect strategy |
 | string-ops | RLE, palindromes, capitalisation |
+| sudoku-bitmask | bitmask Sudoku solver, solution counting with limit |
+| template-engine | mini template engine: filters, if/for, positioned syntax errors |
 | text-table | aligned plain-text tables |
 | typed-container-state-machine | type tokens, EnumMap state machine |
 | typed-event-bus | observer bus with snapshot dispatch |
