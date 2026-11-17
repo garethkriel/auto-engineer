@@ -1,0 +1,1 @@
+{"run_id": "20261117T0956Z", "language": "java", "level": 10, "topic": "concurrency: thread safety, scheduled flush (micro-batching)", "task": "MicroBatcher<T,R>: size-or-time micro-batching of single submits into one bulk call, with injectable Scheduler", "passed": true, "attempts": 2}
