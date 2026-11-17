@@ -22,3 +22,8 @@ General rules distilled from recurring lessons in `lessons/entries/`. Only maint
 - File persistence: test round trip, overwrite, and that no temp files remain; write via temp file + atomic move in the same directory; build path keys from `Path` name elements joined with `/`; when shifting numbered files, go from the highest index down. (20261114T0857Z, 20261114T0956Z)
 - Memoising wrappers: a separate volatile "done" flag written after the value (never null as sentinel), set only after the supplier succeeds; test null results, failure-then-success and concurrent first access. (20261114T1156Z)
 - Custom Collectors: accumulate an immutable type with an identity element; test `combine(EMPTY)` both ways and a parallel-stream run against the sequential result. (20261114T1058Z)
+- Wrapper/middleware chains: write one ordering test first, derive every other test's `use(...)` order from it and annotate layer order in a comment. (20261117T0156Z)
+- Enumeration tasks: get ordering and de-duplication by construction (sort inputs, skip equal siblings, ascending loops); test with published counts plus a validity-and-order invariant. (20261117T0257Z)
+- DP routines: pair plain-literal known answers with randomized brute-force cross-checks and validity checks on the reconstructed solution; never write expectations as expressions mirroring the code. (20261117T0356Z)
+- When a differential test uses another engine (e.g. regex) as oracle, translate token by token with each unit grouped, and suspect the oracle first when it disagrees. (20261117T0456Z)
+- Concurrency tests: run the class 5-8 times before counting it as passing; gate an intended "loser" behind a latch plus a delay, never a latch alone the winner releases before acting. (20261117T0556Z)
