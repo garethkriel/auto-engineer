@@ -1,0 +1,1 @@
+{"run_id": "20261117T1656Z", "language": "java", "level": 13, "topic": "tokenisers, recursive-descent parsers, sealed-interface ASTs, evaluators, error positions (template engine)", "task": "tmpl: template engine with {{ }} output, filters, if/elif/else, for, comments, whitespace control, HTML escaping and line/column syntax errors", "passed": true, "attempts": 1}
