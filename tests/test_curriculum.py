@@ -32,9 +32,12 @@ class ComputeLevelTest(unittest.TestCase):
     def test_mixed_breaks_streak(self):
         self.assertEqual(compute_level(rounds("PPFPP")), 1)
 
-    def test_cap_at_10(self):
-        self.assertEqual(compute_level(rounds("P" * 27)), 10)
-        self.assertEqual(compute_level(rounds("P" * 30)), 10)
+    def test_passes_beyond_10(self):
+        self.assertEqual(compute_level(rounds("P" * 30)), 11)
+
+    def test_cap_at_20(self):
+        self.assertEqual(compute_level(rounds("P" * 57)), 20)
+        self.assertEqual(compute_level(rounds("P" * 60)), 20)
 
 
 class LoadResultsTest(unittest.TestCase):
