@@ -13,13 +13,13 @@ RUN = "20261113T0900Z"
 
 
 def make_round(repo: Path, run_id: str = RUN, passed: bool = True, attempts: int = 1,
-               lesson: bool = True) -> Path:
+               lesson: bool = True, level: int = 1) -> Path:
     rd = repo / "practice" / "java" / run_id
     (rd / "src" / "test" / "java" / "ae").mkdir(parents=True)
     (rd / "src" / "test" / "java" / "ae" / "FooTest.java").write_text("class FooTest {}", encoding="utf-8")
     (rd / "pom.xml").write_text("<project/>", encoding="utf-8")
     (rd / "result.json").write_text(json.dumps(
-        {"run_id": run_id, "language": "java", "level": 1, "topic": "t", "task": "x",
+        {"run_id": run_id, "language": "java", "level": level, "topic": "t", "task": "x",
          "passed": passed, "attempts": attempts}), encoding="utf-8")
     (rd / "export.json").write_text(json.dumps(
         {"language": "java", "task": "x", "code": {}, "tests": {}, "passed": passed,
@@ -51,6 +51,19 @@ class ValidateRoundTest(unittest.TestCase):
         errors = validate_round(self.repo, make_round(self.repo, lesson=False))
         self.assertEqual(len(errors), 1)
         self.assertIn("lessons/entries", errors[0])
+
+    def test_levels_up_to_20_are_valid(self):
+        for level in (1, 11, 20):
+            with self.subTest(level=level), tempfile.TemporaryDirectory() as tmp:
+                repo = Path(tmp)
+                self.assertEqual(validate_round(repo, make_round(repo, level=level)), [])
+
+    def test_level_out_of_range(self):
+        for level in (0, 21):
+            with self.subTest(level=level), tempfile.TemporaryDirectory() as tmp:
+                repo = Path(tmp)
+                errors = validate_round(repo, make_round(repo, level=level))
+                self.assertTrue(any("level must be 1-20" in e for e in errors), errors)
 
     def test_attempts_out_of_range(self):
         errors = validate_round(self.repo, make_round(self.repo, attempts=4))
