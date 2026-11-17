@@ -194,7 +194,7 @@ Rejected PRs are closed. The next practice run must see the rejection reasons, b
 
 **Baseline:** a daily benchmark run on `main` **[Claude's call: 02:00 UTC]**, as a third scheduled task.
 
-**Merge rule for proposals:** the proposal branch is benchmarked **twice**. It merges only if, in both runs, at least one language's pass rate beats `main`'s median of its last 3 baselines, and no language falls below that median. Single LLM runs are noisy, so one lucky run must not count as improvement **[Claude's call: 2 runs, median of 3, refine if noise is larger]**. When every task passes, nothing can "improve". Then the benchmark needs harder tasks, which only Gareth can add (it is protected).
+**Merge rule for proposals (superseded 2026-11-17, see section 11):** the proposal branch is benchmarked **twice**. It merges only if, in both runs, at least one language's pass rate beats `main`'s median of its last 3 baselines, and no language falls below that median. Single LLM runs are noisy, so one lucky run must not count as improvement **[Claude's call: 2 runs, median of 3, refine if noise is larger]**. When every task passes, nothing can "improve". Then the benchmark needs harder tasks, which only Gareth can add (it is protected).
 
 ### 8.7 Usage, pausing and stopping
 
@@ -266,3 +266,7 @@ These override the sections above where they conflict.
     - `BENCH_READ_TOKEN` (read-only, used by the job that runs untrusted code);
     - `BENCH_TOKEN` (read and write, used only by the trusted scoring job);
     - `FIRE_URL` and `FIRE_TOKEN`.
+- **Merge rule changed (2026-11-17, Gareth's decision):**
+  - The benchmark was extended to 25 tasks (j13–j20 harder, j21–j25 very hard), and the agent still scored 100% on every baseline. Its solutions were genuine; for example, its regex was a hand-written Thompson NFA.
+  - "Strictly better than main" could therefore never be met. A proposal now merges when both benchmark runs show **no regression** against `main`'s median in any language, and the AI reviewer judges it a **real improvement**, backed by concrete evidence in the repo.
+  - The benchmark is now a broad regression gate.

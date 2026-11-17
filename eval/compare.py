@@ -1,11 +1,12 @@
-"""Merge rule for self-modification proposals (spec 8.6).
+"""Merge rule for self-modification proposals (spec 8.6, revised 2026-11-17).
 
-The last 2 benchmark runs of the proposal must each:
-- beat main's baseline median (median of the last 3 baselines, or fewer if
-  fewer exist) in at least one language, strictly; and
-- fall below that median in no language. A language missing from a run
-  counts as 0.
-With no baselines, or fewer than 2 runs, the proposal holds.
+The benchmark is a no-regression gate. The last 2 benchmark runs of the
+proposal must each be at or above main's baseline median (median of the last
+3 baselines, or fewer if fewer exist) in every language. A language missing
+from a run counts as 0. With no baselines, or fewer than 2 runs, the proposal
+holds. Whether the change is an improvement is the AI reviewer's judgement
+(review/REVIEWER.md): the benchmark saturated at 100%, so "strictly better"
+could never be met.
 
 CLI:
     python eval/compare.py --csv scores/history.csv --config p-<run-id>
@@ -31,9 +32,7 @@ def should_merge(runs: list[dict[str, float]], base: list[dict[str, float]]) -> 
     languages = sorted({lang for b in base for lang in b})
     medians = {lang: median(b[lang] for b in base if lang in b) for lang in languages}
     for run in runs[-RUNS_REQUIRED:]:
-        improved = any(run.get(lang, 0.0) > medians[lang] for lang in languages)
-        regressed = any(run.get(lang, 0.0) < medians[lang] for lang in languages)
-        if not improved or regressed:
+        if any(run.get(lang, 0.0) < medians[lang] for lang in languages):
             return False
     return True
 
