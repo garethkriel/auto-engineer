@@ -1,0 +1,9 @@
+{
+ "run_id": "20261117T1356Z",
+ "language": "java",
+ "level": 12,
+ "topic": "performance: bit manipulation, primitive arrays vs boxing, data-structure choice, time-bounded tests",
+ "task": "Primitive-array collections: IntBitSet (rank/select/boolean ops) and open-addressing IntIntMap with backward-shift delete, differential and time-bounded tests",
+ "passed": true,
+ "attempts": 2
+}
