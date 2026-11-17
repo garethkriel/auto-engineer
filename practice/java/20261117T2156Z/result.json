@@ -1,0 +1,9 @@
+{
+ "run_id": "20261117T2156Z",
+ "language": "java",
+ "level": 14,
+ "topic": "storage: binary formats with ByteBuffer, CRC32 checksums, crash-safe atomic writes, footer-indexed block file",
+ "task": "ae.tsblock: delta-of-delta varint compressed, CRC-checked time-series block file with footer index and atomic writes",
+ "passed": true,
+ "attempts": 2
+}
