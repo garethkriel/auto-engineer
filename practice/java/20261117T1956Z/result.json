@@ -1,0 +1,1 @@
+{"run_id": "20261117T1956Z", "language": "java", "level": 13, "topic": "language tools: tokeniser, recursive-descent parser, sealed-interface values, error positions (TOML-subset config parser)", "task": "tconf TOML-subset parser: tables, array-of-tables, dotted keys, inline tables, strings/numbers, semantic and syntax errors with line/column", "passed": true, "attempts": 2}
