@@ -1,0 +1,1 @@
+{"run_id": "20261117T0556Z", "language": "java", "level": 10, "topic": "ExecutorService/CompletableFuture, thread safety (bounded parallel map, firstSuccess, timeout)", "task": "conc.Parallel: bounded fail-fast mapOrdered, firstSuccess with AllFailedException, withTimeout", "passed": true, "attempts": 2}
