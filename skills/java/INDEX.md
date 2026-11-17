@@ -8,6 +8,7 @@ All skills pass `mvn -q -B test` (verified 20261114T1256Z). See each folder's RE
 | array-ops | int[] rotation, second largest, runs |
 | business-calendar | java.time business-day arithmetic |
 | dir-snapshot-diff | SHA-256 directory snapshots, atomic persistence, diffs |
+| dp-toolkit | coin change, 0/1 knapsack, LIS with reconstruction |
 | file-kv-store | file-backed key-value store |
 | fraction | exact rational value class |
 | int-range | half-open range value class |
