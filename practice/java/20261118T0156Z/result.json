@@ -1,0 +1,1 @@
+{"run_id": "20261118T0156Z", "language": "java", "level": 15, "topic": "networking: java.net.http.HttpClient, in-process HttpServer, timeouts, retries with backoff", "task": "ae.net.ResilientHttp: HttpClient wrapper with idempotency-aware retries, Retry-After, backoff and delay budget, tested against in-process HttpServer", "passed": true, "attempts": 2}
