@@ -1,0 +1,1 @@
+{"run_id": "20261118T2257Z", "language": "java", "level": 20, "topic": "capstone: semver dependency resolver with backtracking, prerelease rules, lockfile", "task": "ae.deps npm-style semver constraints, registry port, complete backtracking resolver with lock preference, install order and atomic lockfile", "passed": true, "attempts": 2}
