@@ -1,0 +1,1 @@
+{"run_id": "20261118T1556Z", "language": "java", "level": 19, "topic": "distributed ideas: leader election and log replication over a simulated unreliable network, seeded deterministic simulation tests", "task": "Raft-lite leader election and log replication (ae.raft) over a seeded simulated unreliable network with safety checker", "passed": true, "attempts": 2}
