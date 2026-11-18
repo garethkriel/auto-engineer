@@ -1,0 +1,1 @@
+{"run_id": "20261118T1956Z", "language": "java", "level": 20, "topic": "capstone: persistent job scheduler with retries, dependency DAG, write-ahead journal and crash recovery", "task": "ae.jobs durable job scheduler with file journal, backoff retries, cascade cancel and crash-at-every-append recovery tests", "passed": true, "attempts": 2}
