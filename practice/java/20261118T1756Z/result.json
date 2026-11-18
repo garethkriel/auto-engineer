@@ -1,0 +1,1 @@
+{"run_id": "20261118T1756Z", "language": "java", "level": 19, "topic": "distributed ideas: state-based CRDTs (G/PN counters, LWW register, OR-set) with merge laws and seeded gossip simulation", "task": "State-based CRDT library (ae.crdt) with merge-law and gossip convergence tests against oracles", "passed": true, "attempts": 1}
