@@ -1,0 +1,1 @@
+{"run_id": "20261117T2356Z", "language": "java", "level": 14, "topic": "storage: immutable sorted table (SSTable) with sparse index, Bloom filter, CRC32, k-way merge compaction", "task": "ae.sst: SstWriter/SstReader/SstMerge/BloomFilter with UTF-8 byte ordering, tombstones, atomic write and corruption detection", "passed": true, "attempts": 1}
