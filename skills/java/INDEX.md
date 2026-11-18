@@ -1,6 +1,6 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (verified 20261118T0656Z (new rows: indexed-priority-queue, resilient-http, skip-list-map, tcp-relay, udp-stop-and-wait)). See each folder's README.
+All skills pass `mvn -q -B test` (verified 20261118T1256Z (new rows: account-static-state, event-sourced-cart, role-policy-acl, rollback-dsu, saga-coordinator, transactional-outbox)). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
@@ -11,6 +11,7 @@ All skills pass `mvn -q -B test` (verified 20261118T0656Z (new rows: indexed-pri
 | circuit-breaker | circuit breaker, generation-tagged permits, injectable clock |
 | dir-snapshot-diff | SHA-256 directory snapshots, atomic persistence, diffs |
 | dp-toolkit | coin change, knapsack, LIS with solution reconstruction |
+| event-sourced-cart | event sourcing: pure decide/apply fold, optimistic-concurrency store, checkpointed projections |
 | file-kv-store | file-backed key-value store |
 | fraction | exact rational value class |
 | glob-matcher | path globs with memoised matching |
@@ -31,7 +32,10 @@ All skills pass `mvn -q -B test` (verified 20261118T0656Z (new rows: indexed-pri
 | primitive-collections | IntBitSet (rank/select), open-addressing IntIntMap with backward-shift delete |
 | resilient-http | HttpClient wrapper: safe retries, backoff, Retry-After, idempotency keys |
 | retry-backoff | retry with injectable sleeper |
+| role-policy-acl | string-switch to enum-with-behaviour refactor, differential grid oracle |
+| rollback-dsu | union-find with undo, offline dynamic connectivity |
 | rotating-log | size-based log rotation with numbered backups |
+| saga-coordinator | write-ahead-log saga, compensation, crash resume |
 | single-flight | per-key call coalescing via CompletableFuture |
 | skip-list-map | indexable skip list: rank/select/countRange, navigation, invariant checker |
 | slotted-heap-file | slotted pages, record ids, per-page CRC32, compaction, atomic flush |
@@ -43,6 +47,7 @@ All skills pass `mvn -q -B test` (verified 20261118T0656Z (new rows: indexed-pri
 | template-engine | mini template engine: filters, if/for, positioned syntax errors |
 | text-table | aligned plain-text tables |
 | toml-subset-parser | TOML-subset parser, sealed values, line/column errors, depth cap |
+| transactional-outbox | transactional outbox relay, per-key ordering, idempotent receiver |
 | ts-block-file | delta-of-delta varint blocks, per-block CRC, footer index, atomic write |
 | typed-container-state-machine | type tokens, EnumMap state machine |
 | typed-event-bus | observer bus with snapshot dispatch |
