@@ -1,0 +1,1 @@
+{"run_id": "20261118T0356Z", "language": "java", "level": 15, "topic": "networking: UDP DatagramSocket stop-and-wait ARQ with deterministic fault injection", "task": "Reliable message transfer over UDP (ae.udp Packet, ReliableSender, ReliableReceiver) with retransmit, dedupe, linger", "passed": true, "attempts": 1}
