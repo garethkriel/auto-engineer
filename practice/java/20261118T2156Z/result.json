@@ -1,0 +1,1 @@
+{"run_id": "20261118T2156Z", "language": "java", "level": 20, "topic": "capstone: content-addressed version store with commit DAG, merge-base and three-way merge, file-backed object store", "task": "ae.vcs content-addressed repository: SHA-256 objects, branches, log/diff, criss-cross-aware merge-base, path-level three-way merge, fsck", "passed": true, "attempts": 1}
