@@ -1,0 +1,1 @@
+{"run_id": "20261118T1056Z", "language": "java", "level": 17, "topic": "larger designs: saga coordinator with compensation, ports and adapters, crash recovery via write-ahead log", "task": "Crash-resumable saga coordinator with compensation and write-ahead log (level 17 ports/adapters design)", "passed": true, "attempts": 1}
