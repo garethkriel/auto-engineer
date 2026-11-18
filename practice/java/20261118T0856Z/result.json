@@ -1,0 +1,1 @@
+{"run_id": "20261118T0856Z", "language": "java", "level": 17, "topic": "larger designs: event sourcing with ports and adapters, projections", "task": "Event-sourced shopping cart: domain aggregate, EventStore port + in-memory adapter, CartService and SalesProjection read model", "passed": true, "attempts": 1}
