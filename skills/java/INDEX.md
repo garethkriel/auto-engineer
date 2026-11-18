@@ -1,6 +1,6 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (verified 20261117T1856Z). See each folder's README.
+All skills pass `mvn -q -B test` (verified 20261118T0056Z (new rows: markdown-lite, slotted-heap-file, sstable, toml-subset-parser, ts-block-file)). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
@@ -20,6 +20,7 @@ All skills pass `mvn -q -B test` (verified 20261117T1856Z). See each folder's RE
 | leaderboard-ranking | competition ranking, grouping |
 | loan-amortization | BigDecimal schedules |
 | micro-batcher | size-or-time batching with injectable scheduler |
+| markdown-lite | Markdown-subset parser to sealed AST, safe HTML renderer, positioned errors |
 | middleware-pipeline | chain-of-responsibility pipeline, router, auth/recover/trace |
 | object-pool | bounded blocking resource pool, slot accounting |
 | order-analytics | custom Collector, immutable monoid stats, grouping |
@@ -30,11 +31,15 @@ All skills pass `mvn -q -B test` (verified 20261117T1856Z). See each folder's RE
 | retry-backoff | retry with injectable sleeper |
 | rotating-log | size-based log rotation with numbered backups |
 | single-flight | per-key call coalescing via CompletableFuture |
+| slotted-heap-file | slotted pages, record ids, per-page CRC32, compaction, atomic flush |
 | sql-select-builder | immutable parameterised SELECT builder, Dialect strategy |
+| sstable | immutable sorted table, Bloom filter, sparse index, tombstones, k-way merge |
 | string-ops | RLE, palindromes, capitalisation |
 | sudoku-bitmask | bitmask Sudoku solver, solution counting with limit |
 | template-engine | mini template engine: filters, if/for, positioned syntax errors |
 | text-table | aligned plain-text tables |
+| toml-subset-parser | TOML-subset parser, sealed values, line/column errors, depth cap |
+| ts-block-file | delta-of-delta varint blocks, per-block CRC, footer index, atomic write |
 | typed-container-state-machine | type tokens, EnumMap state machine |
 | typed-event-bus | observer bus with snapshot dispatch |
 | typed-result | sealed Result, PECS helpers |
