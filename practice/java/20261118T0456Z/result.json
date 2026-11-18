@@ -1,0 +1,1 @@
+{"run_id": "20261118T0456Z", "language": "java", "level": 16, "topic": "advanced data structures: skip list with spans (order statistics)", "task": "Indexable skip list sorted map (ae.skip.SkipListMap) with rank/select/countRange via link spans, differential-tested against TreeMap", "passed": true, "attempts": 2}
