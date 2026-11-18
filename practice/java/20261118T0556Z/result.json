@@ -1,0 +1,1 @@
+{"run_id": "20261118T0556Z", "language": "java", "level": 16, "topic": "advanced data structures: indexed d-ary heap with change-key and arbitrary remove", "task": "ae.pq.IndexedPriorityQueue: d-ary indexed min-heap with changeKey/remove, deterministic id tie-break, differential-tested against TreeSet", "passed": true, "attempts": 1}
