@@ -1,0 +1,1 @@
+{"run_id": "20261118T0256Z", "language": "java", "level": 15, "topic": "networking: raw ServerSocket/Socket TCP relay with half-close, idle timeout, connection limit", "task": "TCP forwarding proxy (TcpRelay) tested against in-process echo and scripted upstream servers", "passed": true, "attempts": 1}
