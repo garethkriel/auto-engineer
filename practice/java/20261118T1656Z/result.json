@@ -1,0 +1,1 @@
+{"run_id": "20261118T1656Z", "language": "java", "level": 19, "topic": "distributed ideas: consistent hashing with virtual nodes, replicas, bounded load", "task": "Consistent-hash ring (ae.ring HashRing/Hasher/Rebalance) with weighted vnodes, replica preference lists, bounded-load assignment and rebalance diffs", "passed": true, "attempts": 2}
