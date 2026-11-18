@@ -1,0 +1,1 @@
+{"run_id": "20261118T0956Z", "language": "java", "level": 17, "topic": "larger designs: transactional outbox with ports and adapters, idempotent consumer", "task": "Ticket booking with a transactional outbox: Database port + in-memory adapter, BookingService, OutboxRelay (per-key order, backoff, dead-letter) and IdempotentReceiver", "passed": true, "attempts": 2}
