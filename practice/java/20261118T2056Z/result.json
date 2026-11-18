@@ -1,0 +1,1 @@
+{"run_id": "20261118T2056Z", "language": "java", "level": 20, "topic": "capstone: MVCC transactional key-value store with snapshot and serializable isolation, write-skew/phantom detection, vacuum", "task": "MVCC transactional key-value store (ae.mvcc) with snapshot/serializable isolation, vacuum and oracle tests", "passed": true, "attempts": 2}
