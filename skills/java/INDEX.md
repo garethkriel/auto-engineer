@@ -1,6 +1,6 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (verified 20261118T0056Z (new rows: markdown-lite, slotted-heap-file, sstable, toml-subset-parser, ts-block-file)). See each folder's README.
+All skills pass `mvn -q -B test` (verified 20261118T0656Z (new rows: indexed-priority-queue, resilient-http, skip-list-map, tcp-relay, udp-stop-and-wait)). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
@@ -14,13 +14,14 @@ All skills pass `mvn -q -B test` (verified 20261118T0056Z (new rows: markdown-li
 | file-kv-store | file-backed key-value store |
 | fraction | exact rational value class |
 | glob-matcher | path globs with memoised matching |
+| indexed-priority-queue | d-ary indexed min-heap, changeKey/remove by id, deterministic ties |
 | int-range | half-open range value class |
 | inverted-index | tokenising, set queries, Comparator chains |
 | keyed-executor | serial-per-key, parallel-across-keys execution |
 | leaderboard-ranking | competition ranking, grouping |
 | loan-amortization | BigDecimal schedules |
-| micro-batcher | size-or-time batching with injectable scheduler |
 | markdown-lite | Markdown-subset parser to sealed AST, safe HTML renderer, positioned errors |
+| micro-batcher | size-or-time batching with injectable scheduler |
 | middleware-pipeline | chain-of-responsibility pipeline, router, auth/recover/trace |
 | object-pool | bounded blocking resource pool, slot accounting |
 | order-analytics | custom Collector, immutable monoid stats, grouping |
@@ -28,14 +29,17 @@ All skills pass `mvn -q -B test` (verified 20261118T0056Z (new rows: markdown-li
 | persistent-collections | immutable persistent stack and queue |
 | prime-sieve-number-theory | odd-only bit sieve, Miller-Rabin, Pollard-rho, overflow-free modPow |
 | primitive-collections | IntBitSet (rank/select), open-addressing IntIntMap with backward-shift delete |
+| resilient-http | HttpClient wrapper: safe retries, backoff, Retry-After, idempotency keys |
 | retry-backoff | retry with injectable sleeper |
 | rotating-log | size-based log rotation with numbered backups |
 | single-flight | per-key call coalescing via CompletableFuture |
+| skip-list-map | indexable skip list: rank/select/countRange, navigation, invariant checker |
 | slotted-heap-file | slotted pages, record ids, per-page CRC32, compaction, atomic flush |
 | sql-select-builder | immutable parameterised SELECT builder, Dialect strategy |
 | sstable | immutable sorted table, Bloom filter, sparse index, tombstones, k-way merge |
 | string-ops | RLE, palindromes, capitalisation |
 | sudoku-bitmask | bitmask Sudoku solver, solution counting with limit |
+| tcp-relay | loopback TCP proxy: half-close, shared idle timeout, connection cap |
 | template-engine | mini template engine: filters, if/for, positioned syntax errors |
 | text-table | aligned plain-text tables |
 | toml-subset-parser | TOML-subset parser, sealed values, line/column errors, depth cap |
@@ -43,5 +47,6 @@ All skills pass `mvn -q -B test` (verified 20261118T0056Z (new rows: markdown-li
 | typed-container-state-machine | type tokens, EnumMap state machine |
 | typed-event-bus | observer bus with snapshot dispatch |
 | typed-result | sealed Result, PECS helpers |
+| udp-stop-and-wait | reliable UDP transfer: ACK/retransmit, dedupe, index-based loss injection |
 | undo-redo-editor | Command pattern with self-inverse apply, undo/redo |
 | validator-lazy | error-accumulating validators, thread-safe memoising Lazy |
