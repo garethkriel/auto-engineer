@@ -1,6 +1,6 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (verified 20261118T1256Z (new rows: account-static-state, event-sourced-cart, role-policy-acl, rollback-dsu, saga-coordinator, transactional-outbox)). See each folder's README.
+All skills pass `mvn -q -B test` (verified 20261118T1856Z (new rows: consistent-hash-ring, crdt-toolkit, notification-renderer, raft-lite, refactor-library-lending)). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
@@ -9,6 +9,8 @@ All skills pass `mvn -q -B test` (verified 20261118T1256Z (new rows: account-sta
 | backtrack-toolkit | permutations, N-Queens, combination sum backtracking |
 | business-calendar | java.time business-day arithmetic |
 | circuit-breaker | circuit breaker, generation-tagged permits, injectable clock |
+| consistent-hash-ring | weighted virtual-node hash ring, preference lists, bounded-load, rebalance diff |
+| crdt-toolkit | state-based CRDTs (GCounter, PNCounter, LWW register, OR-set) with join merge |
 | dir-snapshot-diff | SHA-256 directory snapshots, atomic persistence, diffs |
 | dp-toolkit | coin change, knapsack, LIS with solution reconstruction |
 | event-sourced-cart | event sourcing: pure decide/apply fold, optimistic-concurrency store, checkpointed projections |
@@ -24,12 +26,15 @@ All skills pass `mvn -q -B test` (verified 20261118T1256Z (new rows: account-sta
 | markdown-lite | Markdown-subset parser to sealed AST, safe HTML renderer, positioned errors |
 | micro-batcher | size-or-time batching with injectable scheduler |
 | middleware-pipeline | chain-of-responsibility pipeline, router, auth/recover/trace |
+| notification-renderer | strategy-pattern refactor with characterisation + differential tests |
 | object-pool | bounded blocking resource pool, slot accounting |
 | order-analytics | custom Collector, immutable monoid stats, grouping |
 | parallel-helpers | bounded ordered parallel map, firstSuccess, timeouts |
 | persistent-collections | immutable persistent stack and queue |
 | prime-sieve-number-theory | odd-only bit sieve, Miller-Rabin, Pollard-rho, overflow-free modPow |
 | primitive-collections | IntBitSet (rank/select), open-addressing IntIntMap with backward-shift delete |
+| raft-lite | Raft election/replication plus seeded fault-injecting cluster simulator |
+| refactor-library-lending | god-class refactor: enum tiers, sealed Result, guard-order differential grid |
 | resilient-http | HttpClient wrapper: safe retries, backoff, Retry-After, idempotency keys |
 | retry-backoff | retry with injectable sleeper |
 | role-policy-acl | string-switch to enum-with-behaviour refactor, differential grid oracle |
