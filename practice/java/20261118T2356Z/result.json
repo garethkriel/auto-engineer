@@ -1,0 +1,1 @@
+{"run_id": "20261118T2356Z", "language": "java", "level": 20, "topic": "capstone: in-memory POSIX-like virtual filesystem with inodes, hard/symlinks, permissions, quota, snapshots, fsck", "task": "ae.vfs in-memory filesystem with path walk, symlink loops, rename matrix, permissions, quota atomicity, snapshots, differential model test", "passed": true, "attempts": 1}
