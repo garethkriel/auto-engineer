@@ -1,0 +1,1 @@
+{"run_id": "20261119T2156Z", "language": "java", "level": 20, "topic": "capstone: Redis-style RESP server with expiry, transactions, append-only-file replay/rewrite and TCP front end", "task": "ae.resp: RESP2 codec + Redis-like engine (strings, lists, TTL, MULTI/EXEC) + AOF replay/rewrite + TCP server", "passed": true, "attempts": 2}
