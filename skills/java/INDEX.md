@@ -1,6 +1,6 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (verified 20261119T1256Z (rows added this round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
+All skills pass `mvn -q -B test` (verified 20261119T1856Z (rows added this round: cdcl-sat-solver, heap-gc, hm-type-inference, probabilistic-sketches, swim-membership; earlier round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
@@ -9,6 +9,7 @@ All skills pass `mvn -q -B test` (verified 20261119T1256Z (rows added this round
 | backtrack-toolkit | permutations, N-Queens, combination sum backtracking |
 | bitemporal-store | bitemporal key/value store: valid-time timelines, as-of reads, atomic transactions |
 | business-calendar | java.time business-day arithmetic |
+| cdcl-sat-solver | CDCL SAT solver with watched literals, learning, restarts, DIMACS, RUP proof checker |
 | circuit-breaker | circuit breaker, generation-tagged permits, injectable clock |
 | consistent-hash-ring | weighted virtual-node hash ring, preference lists, bounded-load, rebalance diff |
 | content-addressed-vcs | SHA-256 object store, commits, merge-base, three-way merge, fsck |
@@ -22,6 +23,8 @@ All skills pass `mvn -q -B test` (verified 20261119T1256Z (rows added this round
 | file-kv-store | file-backed key-value store |
 | fraction | exact rational value class |
 | glob-matcher | path globs with memoised matching |
+| heap-gc | simulated heap with mark-sweep/compaction, free-list allocators, invariant checker |
+| hm-type-inference | Hindley-Milner type inference: parser, unification, let-polymorphism |
 | incremental-build | incremental build engine: dynamic deps, early cutoff, persistence |
 | indexed-priority-queue | d-ary indexed min-heap, changeKey/remove by id, deterministic ties |
 | int-range | half-open range value class |
@@ -43,6 +46,7 @@ All skills pass `mvn -q -B test` (verified 20261119T1256Z (rows added this round
 | persistent-collections | immutable persistent stack and queue |
 | prime-sieve-number-theory | odd-only bit sieve, Miller-Rabin, Pollard-rho, overflow-free modPow |
 | primitive-collections | IntBitSet (rank/select), open-addressing IntIntMap with backward-shift delete |
+| probabilistic-sketches | Bloom filter, Count-Min and HyperLogLog sketches with sealed serialization |
 | raft-lite | Raft election/replication plus seeded fault-injecting cluster simulator |
 | refactor-library-lending | god-class refactor: enum tiers, sealed Result, guard-order differential grid |
 | resilient-http | HttpClient wrapper: safe retries, backoff, Retry-After, idempotency keys |
@@ -60,6 +64,7 @@ All skills pass `mvn -q -B test` (verified 20261119T1256Z (rows added this round
 | sstable | immutable sorted table, Bloom filter, sparse index, tombstones, k-way merge |
 | string-ops | RLE, palindromes, capitalisation |
 | sudoku-bitmask | bitmask Sudoku solver, solution counting with limit |
+| swim-membership | SWIM failure detection and membership gossip simulation with invariant checker |
 | tcp-relay | loopback TCP proxy: half-close, shared idle timeout, connection cap |
 | template-engine | mini template engine: filters, if/for, positioned syntax errors |
 | text-table | aligned plain-text tables |
