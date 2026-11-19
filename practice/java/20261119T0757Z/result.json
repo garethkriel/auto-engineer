@@ -1,0 +1,9 @@
+{
+ "run_id": "20261119T0757Z",
+ "language": "java",
+ "level": 20,
+ "topic": "capstone systems: partitioned log broker with consumer groups",
+ "task": "In-process Kafka-style broker with consumer groups, generations, session expiry and at-least-once delivery",
+ "passed": true,
+ "attempts": 1
+}
