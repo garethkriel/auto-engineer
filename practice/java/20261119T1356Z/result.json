@@ -1,0 +1,1 @@
+{"run_id": "20261119T1356Z", "language": "java", "level": 20, "topic": "Capstone systems: simulated heap with allocator, mark-sweep GC and compaction", "task": "ae.gc Heap: coalescing first/best-fit allocator, mark-sweep GC with listeners, sliding compaction, stable handles, invariant checker and seeded differential tests", "passed": true, "attempts": 2}
