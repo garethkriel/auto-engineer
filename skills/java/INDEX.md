@@ -1,23 +1,28 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (verified 20261119T0056Z (new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
+All skills pass `mvn -q -B test` (verified 20261119T1256Z (rows added this round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
 | account-static-state | static vs instance state, atomic transfers |
 | array-ops | int[] rotation, second largest, runs |
 | backtrack-toolkit | permutations, N-Queens, combination sum backtracking |
+| bitemporal-store | bitemporal key/value store: valid-time timelines, as-of reads, atomic transactions |
 | business-calendar | java.time business-day arithmetic |
 | circuit-breaker | circuit breaker, generation-tagged permits, injectable clock |
 | consistent-hash-ring | weighted virtual-node hash ring, preference lists, bounded-load, rebalance diff |
 | content-addressed-vcs | SHA-256 object store, commits, merge-base, three-way merge, fsck |
+| coord-service | ZooKeeper-style kernel: sessions, ephemeral/sequential nodes, watches, multi, fenced lock |
 | crdt-toolkit | state-based CRDTs (GCounter, PNCounter, LWW register, OR-set) with join merge |
+| datalog-engine | Datalog parser + stratified negation, naive and semi-naive evaluation |
+| deflate-codec | DEFLATE/zlib codec: LZ77, Huffman, bit streams, Adler-32, JDK oracle tests |
 | dir-snapshot-diff | SHA-256 directory snapshots, atomic persistence, diffs |
 | dp-toolkit | coin change, knapsack, LIS with solution reconstruction |
 | event-sourced-cart | event sourcing: pure decide/apply fold, optimistic-concurrency store, checkpointed projections |
 | file-kv-store | file-backed key-value store |
 | fraction | exact rational value class |
 | glob-matcher | path globs with memoised matching |
+| incremental-build | incremental build engine: dynamic deps, early cutoff, persistence |
 | indexed-priority-queue | d-ary indexed min-heap, changeKey/remove by id, deterministic ties |
 | int-range | half-open range value class |
 | inverted-index | tokenising, set queries, Comparator chains |
@@ -25,6 +30,7 @@ All skills pass `mvn -q -B test` (verified 20261119T0056Z (new rows: content-add
 | keyed-executor | serial-per-key, parallel-across-keys execution |
 | leaderboard-ranking | competition ranking, grouping |
 | loan-amortization | BigDecimal schedules |
+| lock-manager | multi-granularity lock manager: IS/IX/S/SIX/X, FIFO queues, deadlock detection |
 | markdown-lite | Markdown-subset parser to sealed AST, safe HTML renderer, positioned errors |
 | micro-batcher | size-or-time batching with injectable scheduler |
 | middleware-pipeline | chain-of-responsibility pipeline, router, auth/recover/trace |
@@ -33,6 +39,7 @@ All skills pass `mvn -q -B test` (verified 20261119T0056Z (new rows: content-add
 | object-pool | bounded blocking resource pool, slot accounting |
 | order-analytics | custom Collector, immutable monoid stats, grouping |
 | parallel-helpers | bounded ordered parallel map, firstSuccess, timeouts |
+| partitioned-log-broker | Kafka-style partitioned log, consumer groups, rebalance, at-least-once |
 | persistent-collections | immutable persistent stack and queue |
 | prime-sieve-number-theory | odd-only bit sieve, Miller-Rabin, Pollard-rho, overflow-free modPow |
 | primitive-collections | IntBitSet (rank/select), open-addressing IntIntMap with backward-shift delete |
@@ -48,6 +55,7 @@ All skills pass `mvn -q -B test` (verified 20261119T0056Z (new rows: content-add
 | single-flight | per-key call coalescing via CompletableFuture |
 | skip-list-map | indexable skip list: rank/select/countRange, navigation, invariant checker |
 | slotted-heap-file | slotted pages, record ids, per-page CRC32, compaction, atomic flush |
+| spatial-quadtree | point quadtree: range/radius/kNN, polygon containment, DBSCAN, CRC snapshots |
 | sql-select-builder | immutable parameterised SELECT builder, Dialect strategy |
 | sstable | immutable sorted table, Bloom filter, sparse index, tombstones, k-way merge |
 | string-ops | RLE, palindromes, capitalisation |
@@ -65,3 +73,4 @@ All skills pass `mvn -q -B test` (verified 20261119T0056Z (new rows: content-add
 | undo-redo-editor | Command pattern with self-inverse apply, undo/redo |
 | validator-lazy | error-accumulating validators, thread-safe memoising Lazy |
 | vfs-inode-model | in-memory POSIX-like filesystem: inodes, links, perms, quota, fsck |
+| windowed-aggregation | event-time windows (tumbling/sliding/session), watermarks, lateness, snapshots |
