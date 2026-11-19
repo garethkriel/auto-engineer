@@ -1,0 +1,1 @@
+{"run_id": "20261119T2256Z", "language": "java", "level": 20, "topic": "capstone: rsync-style delta sync (rolling weak checksum, strong-hash verification, checksummed wire formats, atomic directory sync)", "task": "ae.rsync: rolling checksum + signature + delta encoder + patcher + checksummed wire formats + DirSync", "passed": true, "attempts": 1}
