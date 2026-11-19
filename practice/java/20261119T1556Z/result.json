@@ -1,0 +1,1 @@
+{"run_id": "20261119T1556Z", "language": "java", "level": 20, "topic": "capstone: SWIM membership and failure detection (ping/ping-req, suspicion with incarnation refutation, piggybacked gossip) over a seeded simulated network", "task": "ae.swim SWIM protocol state machine plus deterministic simulator with per-tick safety invariant checker", "passed": true, "attempts": 2}
