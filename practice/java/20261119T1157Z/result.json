@@ -1,0 +1,1 @@
+{"run_id": "20261119T1157Z", "language": "java", "level": 20, "topic": "capstone: ZooKeeper-style coordination kernel with sessions, ephemeral/sequential nodes, one-shot watches, atomic multi, fair fenced lock recipe", "task": "ae.coord coordination service + DistributedLock recipe", "passed": true, "attempts": 2}
