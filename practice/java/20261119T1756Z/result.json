@@ -1,0 +1,1 @@
+{"run_id": "20261119T1756Z", "language": "java", "level": 10, "topic": "probabilistic data structures: Bloom filter, Count-Min sketch, HyperLogLog with sealed serialization", "task": "ae.sketch Bloom filter, Count-Min sketch (plain/conservative) and HyperLogLog with merge algebra, statistical bound tests and CRC-sealed serialization", "passed": true, "attempts": 2}
