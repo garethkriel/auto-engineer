@@ -1,6 +1,6 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (verified 20261118T1856Z (new rows: consistent-hash-ring, crdt-toolkit, notification-renderer, raft-lite, refactor-library-lending)). See each folder's README.
+All skills pass `mvn -q -B test` (verified 20261119T0056Z (new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
@@ -10,6 +10,7 @@ All skills pass `mvn -q -B test` (verified 20261118T1856Z (new rows: consistent-
 | business-calendar | java.time business-day arithmetic |
 | circuit-breaker | circuit breaker, generation-tagged permits, injectable clock |
 | consistent-hash-ring | weighted virtual-node hash ring, preference lists, bounded-load, rebalance diff |
+| content-addressed-vcs | SHA-256 object store, commits, merge-base, three-way merge, fsck |
 | crdt-toolkit | state-based CRDTs (GCounter, PNCounter, LWW register, OR-set) with join merge |
 | dir-snapshot-diff | SHA-256 directory snapshots, atomic persistence, diffs |
 | dp-toolkit | coin change, knapsack, LIS with solution reconstruction |
@@ -20,12 +21,14 @@ All skills pass `mvn -q -B test` (verified 20261118T1856Z (new rows: consistent-
 | indexed-priority-queue | d-ary indexed min-heap, changeKey/remove by id, deterministic ties |
 | int-range | half-open range value class |
 | inverted-index | tokenising, set queries, Comparator chains |
+| job-scheduler | durable job scheduler: deps, retries with backoff, journal replay recovery |
 | keyed-executor | serial-per-key, parallel-across-keys execution |
 | leaderboard-ranking | competition ranking, grouping |
 | loan-amortization | BigDecimal schedules |
 | markdown-lite | Markdown-subset parser to sealed AST, safe HTML renderer, positioned errors |
 | micro-batcher | size-or-time batching with injectable scheduler |
 | middleware-pipeline | chain-of-responsibility pipeline, router, auth/recover/trace |
+| mvcc-store | multi-version KV store: snapshot/serializable txns, vacuum |
 | notification-renderer | strategy-pattern refactor with characterisation + differential tests |
 | object-pool | bounded blocking resource pool, slot accounting |
 | order-analytics | custom Collector, immutable monoid stats, grouping |
@@ -41,6 +44,7 @@ All skills pass `mvn -q -B test` (verified 20261118T1856Z (new rows: consistent-
 | rollback-dsu | union-find with undo, offline dynamic connectivity |
 | rotating-log | size-based log rotation with numbered backups |
 | saga-coordinator | write-ahead-log saga, compensation, crash resume |
+| semver-resolver | semver constraints, backtracking dependency resolver, lockfile |
 | single-flight | per-key call coalescing via CompletableFuture |
 | skip-list-map | indexable skip list: rank/select/countRange, navigation, invariant checker |
 | slotted-heap-file | slotted pages, record ids, per-page CRC32, compaction, atomic flush |
@@ -60,3 +64,4 @@ All skills pass `mvn -q -B test` (verified 20261118T1856Z (new rows: consistent-
 | udp-stop-and-wait | reliable UDP transfer: ACK/retransmit, dedupe, index-based loss injection |
 | undo-redo-editor | Command pattern with self-inverse apply, undo/redo |
 | validator-lazy | error-accumulating validators, thread-safe memoising Lazy |
+| vfs-inode-model | in-memory POSIX-like filesystem: inodes, links, perms, quota, fsck |
