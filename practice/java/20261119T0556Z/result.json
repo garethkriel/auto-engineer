@@ -1,0 +1,9 @@
+{
+ "run_id": "20261119T0556Z",
+ "language": "java",
+ "level": 20,
+ "topic": "capstone: DEFLATE/zlib codec with bit streams, canonical Huffman decoding, LZ77 hash chains, differential tests against JDK zlib",
+ "task": "ae.deflate: DEFLATE/zlib codec from scratch (inflate all block types, LZ77+fixed Huffman deflate, Adler-32) verified against JDK Deflater/Inflater",
+ "passed": true,
+ "attempts": 3
+}
