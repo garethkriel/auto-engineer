@@ -1,6 +1,6 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (verified 20261119T0056Z (new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
+All skills pass `mvn -q -B test` (verified 20261119T0656Z (new rows: deflate-codec, lock-manager, spatial-quadtree, windowed-aggregation)). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
@@ -12,6 +12,7 @@ All skills pass `mvn -q -B test` (verified 20261119T0056Z (new rows: content-add
 | consistent-hash-ring | weighted virtual-node hash ring, preference lists, bounded-load, rebalance diff |
 | content-addressed-vcs | SHA-256 object store, commits, merge-base, three-way merge, fsck |
 | crdt-toolkit | state-based CRDTs (GCounter, PNCounter, LWW register, OR-set) with join merge |
+| deflate-codec | DEFLATE/zlib codec: inflate (stored/fixed/dynamic), LZ77+fixed-Huffman deflate, Adler-32, JDK as test oracle |
 | dir-snapshot-diff | SHA-256 directory snapshots, atomic persistence, diffs |
 | dp-toolkit | coin change, knapsack, LIS with solution reconstruction |
 | event-sourced-cart | event sourcing: pure decide/apply fold, optimistic-concurrency store, checkpointed projections |
@@ -25,6 +26,7 @@ All skills pass `mvn -q -B test` (verified 20261119T0056Z (new rows: content-add
 | keyed-executor | serial-per-key, parallel-across-keys execution |
 | leaderboard-ranking | competition ranking, grouping |
 | loan-amortization | BigDecimal schedules |
+| lock-manager | non-blocking multi-granularity lock manager: IS/IX/S/SIX/X, FIFO queues, upgrades, deadlock victims, 2PL |
 | markdown-lite | Markdown-subset parser to sealed AST, safe HTML renderer, positioned errors |
 | micro-batcher | size-or-time batching with injectable scheduler |
 | middleware-pipeline | chain-of-responsibility pipeline, router, auth/recover/trace |
@@ -48,6 +50,7 @@ All skills pass `mvn -q -B test` (verified 20261119T0056Z (new rows: content-add
 | single-flight | per-key call coalescing via CompletableFuture |
 | skip-list-map | indexable skip list: rank/select/countRange, navigation, invariant checker |
 | slotted-heap-file | slotted pages, record ids, per-page CRC32, compaction, atomic flush |
+| spatial-quadtree | point quadtree: range/radius/kNN/polygon/DBSCAN queries, CRC-checked canonical snapshots |
 | sql-select-builder | immutable parameterised SELECT builder, Dialect strategy |
 | sstable | immutable sorted table, Bloom filter, sparse index, tombstones, k-way merge |
 | string-ops | RLE, palindromes, capitalisation |
@@ -65,3 +68,5 @@ All skills pass `mvn -q -B test` (verified 20261119T0056Z (new rows: content-add
 | undo-redo-editor | Command pattern with self-inverse apply, undo/redo |
 | validator-lazy | error-accumulating validators, thread-safe memoising Lazy |
 | vfs-inode-model | in-memory POSIX-like filesystem: inodes, links, perms, quota, fsck |
+| windowed-aggregation | event-time windows (tumbling/sliding/session), watermark, allowed lateness, CRC snapshots |
+|---|---|
