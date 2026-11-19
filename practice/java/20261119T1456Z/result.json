@@ -1,0 +1,1 @@
+{"run_id": "20261119T1456Z", "language": "java", "level": 20, "topic": "capstone: Hindley-Milner type inference (parser, unification with occurs check, let-polymorphism, let rec, positioned errors)", "task": "ae.hm principal-type inference for a tiny lambda language with exact error positions and type-directed randomised oracle tests", "passed": true, "attempts": 2}
