@@ -1,0 +1,1 @@
+{"run_id": "20261119T1956Z", "language": "java", "level": 20, "topic": "capstone: disk-backed B+tree with LRU buffer pool, free list, invariant checker and TreeMap differential tests", "task": "ae.btree: PageFile + pinning BufferPool + long->long B+tree with split, empty-node unlink, page reuse, persistence and check()", "passed": true, "attempts": 2}
