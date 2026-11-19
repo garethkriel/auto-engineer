@@ -1,0 +1,1 @@
+{"run_id": "20261119T2056Z", "language": "java", "level": 20, "topic": "Capstone systems: explicit-state model checker (BFS safety with shortest counterexamples, Tarjan-based liveness lassos)", "task": "ae.mc explicit-state model checker with deadlock/invariant/eventually checks, example protocols and brute-force oracle tests", "passed": true, "attempts": 2}
