@@ -1,0 +1,1 @@
+{"run_id": "20261119T1656Z", "language": "java", "level": 20, "topic": "capstone: CDCL SAT solver whose SAT/UNSAT answers are verified by an independent model checker and RUP proof checker", "task": "ae.sat CDCL SAT solver (2-watched literals, 1-UIP, VSIDS, Luby restarts) with independent model and RUP proof checkers, DIMACS parser, encodings", "passed": true, "attempts": 2}
