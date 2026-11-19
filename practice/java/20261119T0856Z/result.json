@@ -1,0 +1,9 @@
+{
+ "run_id": "20261119T0856Z",
+ "language": "java",
+ "level": 20,
+ "topic": "capstone systems: bitemporal versioned store",
+ "task": "Bitemporal key/value store (ae.bitemporal) with valid-time intervals, as-of reads, atomic transactions, diff and revisions",
+ "passed": true,
+ "attempts": 1
+}
