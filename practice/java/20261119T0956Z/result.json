@@ -1,0 +1,1 @@
+{"run_id": "20261119T0956Z", "language": "java", "level": 20, "topic": "Capstone systems: Datalog engine (parser, safety/stratification analysis, naive and semi-naive bottom-up evaluation)", "task": "ae.datalog small Datalog engine with negation, inequality, stratification, semi-naive evaluation and oracle tests", "passed": true, "attempts": 2}
