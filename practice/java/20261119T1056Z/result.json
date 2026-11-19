@@ -1,0 +1,1 @@
+{"run_id": "20261119T1056Z", "language": "java", "level": 20, "topic": "capstone: Shake-style incremental build engine with dynamic dependencies, early cutoff, failure memoisation, cycle paths and a checksummed store", "task": "Incremental build engine (ae.build) with dynamic deps, early cutoff, CRC-sealed persistent store", "passed": true, "attempts": 2}
