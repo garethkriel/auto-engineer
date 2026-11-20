@@ -1,0 +1,1 @@
+{"run_id": "20261120T0556Z", "language": "java", "level": 20, "topic": "capstone: Roaring-style compressed bitmap (array/bitmap/run containers, CRC-sealed format), bit-sliced index and bitmap-index boolean query engine", "task": "ae.roaring: RoaringBitmap + BitSlicedIndex + BitmapTable query language with TreeSet/brute-force differential tests", "passed": true, "attempts": 2}
