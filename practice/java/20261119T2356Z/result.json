@@ -1,0 +1,1 @@
+{"run_id": "20261119T2356Z", "language": "java", "level": 20, "topic": "capstone: exact rational simplex LP solver (two-phase, Bland) with independent duality/Farkas/ray certificate checker and vertex-enumeration oracle", "task": "ae.lp: Rational + LP text parser + exact two-phase simplex + certificate checker", "passed": true, "attempts": 2}
