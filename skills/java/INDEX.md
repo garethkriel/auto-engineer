@@ -1,6 +1,6 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (verified 20261119T1856Z (rows added this round: cdcl-sat-solver, heap-gc, hm-type-inference, probabilistic-sketches, swim-membership; earlier round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
+All skills pass `mvn -q -B test` (verified 20261120T0056Z (rows added this round: btree-buffer-pool, exact-simplex-lp, resp-mini-server, rsync-delta; earlier round: rows added this round: cdcl-sat-solver, heap-gc, hm-type-inference, probabilistic-sketches, swim-membership; earlier round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
@@ -8,6 +8,7 @@ All skills pass `mvn -q -B test` (verified 20261119T1856Z (rows added this round
 | array-ops | int[] rotation, second largest, runs |
 | backtrack-toolkit | permutations, N-Queens, combination sum backtracking |
 | bitemporal-store | bitemporal key/value store: valid-time timelines, as-of reads, atomic transactions |
+| btree-buffer-pool | disk-backed B+tree over a pinning LRU buffer pool, free list, invariant checker |
 | business-calendar | java.time business-day arithmetic |
 | cdcl-sat-solver | CDCL SAT solver with watched literals, learning, restarts, DIMACS, RUP proof checker |
 | circuit-breaker | circuit breaker, generation-tagged permits, injectable clock |
@@ -20,6 +21,7 @@ All skills pass `mvn -q -B test` (verified 20261119T1856Z (rows added this round
 | dir-snapshot-diff | SHA-256 directory snapshots, atomic persistence, diffs |
 | dp-toolkit | coin change, knapsack, LIS with solution reconstruction |
 | event-sourced-cart | event sourcing: pure decide/apply fold, optimistic-concurrency store, checkpointed projections |
+| exact-simplex-lp | exact rational simplex LP solver with Bland rule and duality/Farkas certificates |
 | file-kv-store | file-backed key-value store |
 | fraction | exact rational value class |
 | glob-matcher | path globs with memoised matching |
@@ -50,10 +52,12 @@ All skills pass `mvn -q -B test` (verified 20261119T1856Z (rows added this round
 | raft-lite | Raft election/replication plus seeded fault-injecting cluster simulator |
 | refactor-library-lending | god-class refactor: enum tiers, sealed Result, guard-order differential grid |
 | resilient-http | HttpClient wrapper: safe retries, backoff, Retry-After, idempotency keys |
+| resp-mini-server | Redis-style RESP server with expiry, transactions and AOF crash recovery |
 | retry-backoff | retry with injectable sleeper |
 | role-policy-acl | string-switch to enum-with-behaviour refactor, differential grid oracle |
 | rollback-dsu | union-find with undo, offline dynamic connectivity |
 | rotating-log | size-based log rotation with numbered backups |
+| rsync-delta | rsync-style rolling-checksum delta sync with atomic directory writes |
 | saga-coordinator | write-ahead-log saga, compensation, crash resume |
 | semver-resolver | semver constraints, backtracking dependency resolver, lockfile |
 | single-flight | per-key call coalescing via CompletableFuture |
