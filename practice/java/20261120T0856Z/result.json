@@ -1,0 +1,1 @@
+{"run_id": "20261120T0856Z", "language": "java", "level": 20, "topic": "capstone: suffix array, LCP, BWT and FM-index with brute-force differential tests", "task": "ae.suffix suffix-array toolkit: prefix-doubling SA, Kasai LCP, SuffixIndex search/repeats/kth/LCSubstring, BWT, sampled FM-index", "passed": true, "attempts": 1}
