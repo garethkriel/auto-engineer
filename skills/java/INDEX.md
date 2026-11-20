@@ -1,6 +1,6 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (verified 20261120T0656Z (rows added this round: erasure-coded-blob-store, flow-toolkit, gorilla-timeseries, peg-engine, roaring-bitmap-index; earlier round: rows added this round: btree-buffer-pool, exact-simplex-lp, resp-mini-server, rsync-delta; earlier round: rows added this round: cdcl-sat-solver, heap-gc, hm-type-inference, probabilistic-sketches, swim-membership; earlier round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
+All skills pass `mvn -q -B test` (verified 20261120T0656Z for earlier rows; the five new rows verified 20261120T1257Z (rows added this round: chess-rules, exact-geometry, mini-sql-engine, regex-automata, suffix-toolkit; earlier round: rows added this round: erasure-coded-blob-store, flow-toolkit, gorilla-timeseries, peg-engine, roaring-bitmap-index; earlier round: rows added this round: btree-buffer-pool, exact-simplex-lp, resp-mini-server, rsync-delta; earlier round: rows added this round: cdcl-sat-solver, heap-gc, hm-type-inference, probabilistic-sketches, swim-membership; earlier round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
@@ -11,6 +11,7 @@ All skills pass `mvn -q -B test` (verified 20261120T0656Z (rows added this round
 | btree-buffer-pool | disk-backed B+tree over a pinning LRU buffer pool, free list, invariant checker |
 | business-calendar | java.time business-day arithmetic |
 | cdcl-sat-solver | CDCL SAT solver with watched literals, learning, restarts, DIMACS, RUP proof checker |
+| chess-rules | full chess rules engine: FEN/SAN, legal moves, make/unmake, perft, mate search |
 | circuit-breaker | circuit breaker, generation-tagged permits, injectable clock |
 | consistent-hash-ring | weighted virtual-node hash ring, preference lists, bounded-load, rebalance diff |
 | content-addressed-vcs | SHA-256 object store, commits, merge-base, three-way merge, fsck |
@@ -22,6 +23,7 @@ All skills pass `mvn -q -B test` (verified 20261120T0656Z (rows added this round
 | dp-toolkit | coin change, knapsack, LIS with solution reconstruction |
 | erasure-coded-blob-store | Reed-Solomon (GF(256) Cauchy) erasure-coded blob store: shard files, CRC, scrub, repair |
 | event-sourced-cart | event sourcing: pure decide/apply fold, optimistic-concurrency store, checkpointed projections |
+| exact-geometry | exact integer geometry: hull, segment intersection, point-in-polygon, closest pair, sweep |
 | exact-simplex-lp | exact rational simplex LP solver with Bland rule and duality/Farkas certificates |
 | file-kv-store | file-backed key-value store |
 | flow-toolkit | Dinic max-flow/min-cut, min-cost flow, Hopcroft-Karp, Hungarian, shift planner |
@@ -42,6 +44,7 @@ All skills pass `mvn -q -B test` (verified 20261120T0656Z (rows added this round
 | markdown-lite | Markdown-subset parser to sealed AST, safe HTML renderer, positioned errors |
 | micro-batcher | size-or-time batching with injectable scheduler |
 | middleware-pipeline | chain-of-responsibility pipeline, router, auth/recover/trace |
+| mini-sql-engine | in-memory SQL engine: parser, joins (naive vs hash), 3-valued logic, GROUP BY, transactions |
 | mvcc-store | multi-version KV store: snapshot/serializable txns, vacuum |
 | notification-renderer | strategy-pattern refactor with characterisation + differential tests |
 | object-pool | bounded blocking resource pool, slot accounting |
@@ -55,6 +58,7 @@ All skills pass `mvn -q -B test` (verified 20261120T0656Z (rows added this round
 | probabilistic-sketches | Bloom filter, Count-Min and HyperLogLog sketches with sealed serialization |
 | raft-lite | Raft election/replication plus seeded fault-injecting cluster simulator |
 | refactor-library-lending | god-class refactor: enum tiers, sealed Result, guard-order differential grid |
+| regex-automata | regex to NFA/DFA, minimisation, canonical form, equivalence with witness |
 | resilient-http | HttpClient wrapper: safe retries, backoff, Retry-After, idempotency keys |
 | resp-mini-server | Redis-style RESP server with expiry, transactions and AOF crash recovery |
 | retry-backoff | retry with injectable sleeper |
@@ -73,6 +77,7 @@ All skills pass `mvn -q -B test` (verified 20261120T0656Z (rows added this round
 | sstable | immutable sorted table, Bloom filter, sparse index, tombstones, k-way merge |
 | string-ops | RLE, palindromes, capitalisation |
 | sudoku-bitmask | bitmask Sudoku solver, solution counting with limit |
+| suffix-toolkit | suffix array, LCP, BWT, FM-index, substring search |
 | swim-membership | SWIM failure detection and membership gossip simulation with invariant checker |
 | tcp-relay | loopback TCP proxy: half-close, shared idle timeout, connection cap |
 | template-engine | mini template engine: filters, if/for, positioned syntax errors |
