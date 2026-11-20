@@ -1,0 +1,9 @@
+{
+ "run_id": "20261120T1156Z",
+ "language": "java",
+ "level": 20,
+ "topic": "capstone: in-memory SQL engine (parser, 3VL evaluator, joins, grouping, DML, transactions) with naive vs hash-join/pushdown planners and differential tests",
+ "task": "ae.minisql: SQL subset engine with NAIVE and OPTIMIZED planners verified by randomized differential and collection-oracle tests",
+ "passed": true,
+ "attempts": 1
+}
