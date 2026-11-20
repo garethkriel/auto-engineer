@@ -1,0 +1,9 @@
+{
+ "run_id": "20261120T0256Z",
+ "language": "java",
+ "level": 20,
+ "topic": "capstone: compressed time-series store (Gorilla-style bit codec, sealed blocks, downsampling aggregates, retention, CRC-sealed snapshot)",
+ "task": "ae.tsdb compressed time-series store: Gorilla delta-of-delta/XOR codec, block-skipping queries, aggregates, retention, CRC snapshot",
+ "passed": true,
+ "attempts": 2
+}
