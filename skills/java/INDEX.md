@@ -1,6 +1,6 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (verified 20261120T0056Z (rows added this round: btree-buffer-pool, exact-simplex-lp, resp-mini-server, rsync-delta; earlier round: rows added this round: cdcl-sat-solver, heap-gc, hm-type-inference, probabilistic-sketches, swim-membership; earlier round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
+All skills pass `mvn -q -B test` (verified 20261120T0656Z (rows added this round: erasure-coded-blob-store, flow-toolkit, gorilla-timeseries, peg-engine, roaring-bitmap-index; earlier round: rows added this round: btree-buffer-pool, exact-simplex-lp, resp-mini-server, rsync-delta; earlier round: rows added this round: cdcl-sat-solver, heap-gc, hm-type-inference, probabilistic-sketches, swim-membership; earlier round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
@@ -20,11 +20,14 @@ All skills pass `mvn -q -B test` (verified 20261120T0056Z (rows added this round
 | deflate-codec | DEFLATE/zlib codec: LZ77, Huffman, bit streams, Adler-32, JDK oracle tests |
 | dir-snapshot-diff | SHA-256 directory snapshots, atomic persistence, diffs |
 | dp-toolkit | coin change, knapsack, LIS with solution reconstruction |
+| erasure-coded-blob-store | Reed-Solomon (GF(256) Cauchy) erasure-coded blob store: shard files, CRC, scrub, repair |
 | event-sourced-cart | event sourcing: pure decide/apply fold, optimistic-concurrency store, checkpointed projections |
 | exact-simplex-lp | exact rational simplex LP solver with Bland rule and duality/Farkas certificates |
 | file-kv-store | file-backed key-value store |
+| flow-toolkit | Dinic max-flow/min-cut, min-cost flow, Hopcroft-Karp, Hungarian, shift planner |
 | fraction | exact rational value class |
 | glob-matcher | path globs with memoised matching |
+| gorilla-timeseries | Gorilla delta-of-delta/XOR time-series compression, sealed blocks, retention, snapshots |
 | heap-gc | simulated heap with mark-sweep/compaction, free-list allocators, invariant checker |
 | hm-type-inference | Hindley-Milner type inference: parser, unification, let-polymorphism |
 | incremental-build | incremental build engine: dynamic deps, early cutoff, persistence |
@@ -45,6 +48,7 @@ All skills pass `mvn -q -B test` (verified 20261120T0056Z (rows added this round
 | order-analytics | custom Collector, immutable monoid stats, grouping |
 | parallel-helpers | bounded ordered parallel map, firstSuccess, timeouts |
 | partitioned-log-broker | Kafka-style partitioned log, consumer groups, rebalance, at-least-once |
+| peg-engine | PEG grammar parser with static analysis, packrat interpreter, farthest-failure errors |
 | persistent-collections | immutable persistent stack and queue |
 | prime-sieve-number-theory | odd-only bit sieve, Miller-Rabin, Pollard-rho, overflow-free modPow |
 | primitive-collections | IntBitSet (rank/select), open-addressing IntIntMap with backward-shift delete |
@@ -54,6 +58,7 @@ All skills pass `mvn -q -B test` (verified 20261120T0056Z (rows added this round
 | resilient-http | HttpClient wrapper: safe retries, backoff, Retry-After, idempotency keys |
 | resp-mini-server | Redis-style RESP server with expiry, transactions and AOF crash recovery |
 | retry-backoff | retry with injectable sleeper |
+| roaring-bitmap-index | Roaring bitmaps (array/bitmap/run containers), bit-sliced index, boolean query parser |
 | role-policy-acl | string-switch to enum-with-behaviour refactor, differential grid oracle |
 | rollback-dsu | union-find with undo, offline dynamic connectivity |
 | rotating-log | size-based log rotation with numbered backups |
