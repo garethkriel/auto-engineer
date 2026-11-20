@@ -1,0 +1,9 @@
+{
+ "run_id": "20261120T1356Z",
+ "language": "java",
+ "level": 20,
+ "topic": "capstone: language toolchain (lexer, parser, checker, tree interpreter, AST optimiser, bytecode compiler, verifier and stack VM) with four-engine differential tests",
+ "task": "ae.minilang: tiny integer language run on interpreter and bytecode VM, each with and without an optimiser, all agreeing on output and error kind",
+ "passed": true,
+ "attempts": 2
+}
