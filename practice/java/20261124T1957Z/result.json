@@ -1,0 +1,1 @@
+{"run_id": "20261124T1957Z", "language": "java", "level": 20, "topic": "capstone: small end-to-end deterministic simulation (elevator-bank dispatch, SCAN stops, invariants, livelock regression)", "task": "ae.elevator: deterministic multi-car elevator dispatch simulation with invariant checker", "passed": true, "attempts": 2}
