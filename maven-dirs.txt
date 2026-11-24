@@ -1,2 +1,0 @@
-practice/java/20261120T1356Z
-skills/java/minilang-toolchain
