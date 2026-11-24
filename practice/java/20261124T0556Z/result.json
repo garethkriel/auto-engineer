@@ -1,0 +1,9 @@
+{
+ "run_id": "20261124T0556Z",
+ "language": "java",
+ "level": 20,
+ "topic": "capstone: MQTT-style pub/sub broker core (topic wildcard trie, sessions, retained, wills, QoS 1 window/ack/redelivery) with trie-vs-matcher differential, invariant-checked random simulation and a mutation check",
+ "task": "ae.broker: MQTT-style pub/sub broker core (wildcard trie, retained, wills, QoS1 redelivery, sessions) verified by literal, differential, simulation and mutation tests",
+ "passed": true,
+ "attempts": 2
+}
