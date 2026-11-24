@@ -1,0 +1,9 @@
+{
+ "run_id": "20261124T0756Z",
+ "language": "java",
+ "level": 20,
+ "topic": "capstone: UTXO blockchain ledger (Merkle tree with inclusion proofs, proof-of-work blocks, atomic apply/undo, side branches and reorganisation) with oracle-replay simulation and mutation check",
+ "task": "ae.chain UTXO ledger with Merkle proofs, PoW blocks and reorg",
+ "passed": true,
+ "attempts": 3
+}
