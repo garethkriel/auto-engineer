@@ -1,0 +1,1 @@
+{"run_id": "20261124T0356Z", "language": "java", "level": 20, "topic": "capstone: arbitrary-precision integers from scratch (Knuth D division, Karatsuba, modPow, modInverse, isqrt, radix I/O) with BigInteger differential tests", "task": "ae.bigint.Big: immutable sign-magnitude big integer verified against BigInteger", "passed": true, "attempts": 2}
