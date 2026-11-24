@@ -1,0 +1,1 @@
+{"run_id": "20261124T1356Z", "language": "java", "level": 20, "topic": "capstone: persistent balanced rope (AVL join/split, line index, KMP search across leaves) with StringBuilder differential, balance and checker-corruption tests", "task": "ae.rope persistent rope with line index, KMP search and invariant checker", "passed": true, "attempts": 2}
