@@ -1,17 +1,19 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (verified 20261120T0656Z for earlier rows; the five new rows verified 20261120T1257Z (rows added this round: chess-rules, exact-geometry, mini-sql-engine, regex-automata, suffix-toolkit; earlier round: rows added this round: erasure-coded-blob-store, flow-toolkit, gorilla-timeseries, peg-engine, roaring-bitmap-index; earlier round: rows added this round: btree-buffer-pool, exact-simplex-lp, resp-mini-server, rsync-delta; earlier round: rows added this round: cdcl-sat-solver, heap-gc, hm-type-inference, probabilistic-sketches, swim-membership; earlier round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
+All skills pass `mvn -q -B test` (the five rows bigint-from-scratch, cidr-toolkit, minilang-toolchain, mqtt-broker-core, prolog-engine verified 20261124T0656Z; verified 20261120T0656Z for earlier rows; the five new rows verified 20261120T1257Z (rows added this round: chess-rules, exact-geometry, mini-sql-engine, regex-automata, suffix-toolkit; earlier round: rows added this round: erasure-coded-blob-store, flow-toolkit, gorilla-timeseries, peg-engine, roaring-bitmap-index; earlier round: rows added this round: btree-buffer-pool, exact-simplex-lp, resp-mini-server, rsync-delta; earlier round: rows added this round: cdcl-sat-solver, heap-gc, hm-type-inference, probabilistic-sketches, swim-membership; earlier round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
 | account-static-state | static vs instance state, atomic transfers |
 | array-ops | int[] rotation, second largest, runs |
 | backtrack-toolkit | permutations, N-Queens, combination sum backtracking |
+| bigint-from-scratch | arbitrary-precision integers from scratch: Karatsuba, Knuth D division, modPow/modInverse, radix I/O (BigInteger as oracle) |
 | bitemporal-store | bitemporal key/value store: valid-time timelines, as-of reads, atomic transactions |
 | btree-buffer-pool | disk-backed B+tree over a pinning LRU buffer pool, free list, invariant checker |
 | business-calendar | java.time business-day arithmetic |
 | cdcl-sat-solver | CDCL SAT solver with watched literals, learning, restarts, DIMACS, RUP proof checker |
 | chess-rules | full chess rules engine: FEN/SAN, legal moves, make/unmake, perft, mate search |
+| cidr-toolkit | IPv4 CIDR set algebra, longest-prefix route trie with aggregation, firewall shadow analysis |
 | circuit-breaker | circuit breaker, generation-tagged permits, injectable clock |
 | consistent-hash-ring | weighted virtual-node hash ring, preference lists, bounded-load, rebalance diff |
 | content-addressed-vcs | SHA-256 object store, commits, merge-base, three-way merge, fsck |
@@ -45,6 +47,8 @@ All skills pass `mvn -q -B test` (verified 20261120T0656Z for earlier rows; the 
 | micro-batcher | size-or-time batching with injectable scheduler |
 | middleware-pipeline | chain-of-responsibility pipeline, router, auth/recover/trace |
 | mini-sql-engine | in-memory SQL engine: parser, joins (naive vs hash), 3-valued logic, GROUP BY, transactions |
+| minilang-toolchain | tiny-language lexer/parser/checker/optimiser/bytecode compiler/verifier/VM with four-engine differential tests |
+| mqtt-broker-core | MQTT-style broker: wildcard subscription trie, sessions, retained/will, QoS 1 redelivery, invariant checker |
 | mvcc-store | multi-version KV store: snapshot/serializable txns, vacuum |
 | notification-renderer | strategy-pattern refactor with characterisation + differential tests |
 | object-pool | bounded blocking resource pool, slot accounting |
@@ -56,6 +60,7 @@ All skills pass `mvn -q -B test` (verified 20261120T0656Z for earlier rows; the 
 | prime-sieve-number-theory | odd-only bit sieve, Miller-Rabin, Pollard-rho, overflow-free modPow |
 | primitive-collections | IntBitSet (rank/select), open-addressing IntIntMap with backward-shift delete |
 | probabilistic-sketches | Bloom filter, Count-Min and HyperLogLog sketches with sealed serialization |
+| prolog-engine | Prolog subset: operator-precedence parser, iterative SLD with cut, findall, assert/retract, exact arithmetic |
 | raft-lite | Raft election/replication plus seeded fault-injecting cluster simulator |
 | refactor-library-lending | god-class refactor: enum tiers, sealed Result, guard-order differential grid |
 | regex-automata | regex to NFA/DFA, minimisation, canonical form, equivalence with witness |
