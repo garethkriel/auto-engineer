@@ -1,0 +1,9 @@
+{
+ "run_id": "20261124T0456Z",
+ "language": "java",
+ "level": 20,
+ "topic": "capstone: Prolog-subset engine (parser with operator precedence, iterative SLD resolution with cut, if-then-else, negation, findall, assert/retract, exact arithmetic) with Java oracles and a mutation check",
+ "task": "ae.prolog: Prolog-subset engine with cut, lists, arithmetic and database updates, verified by literal, differential and mutation tests",
+ "passed": true,
+ "attempts": 2
+}
