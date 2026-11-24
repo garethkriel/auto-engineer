@@ -1,0 +1,9 @@
+{
+ "run_id": "20261124T0156Z",
+ "language": "java",
+ "level": 20,
+ "topic": "capstone: IPv4 addressing toolkit (strict CIDR parsing, minimal-cover address sets, longest-prefix trie with lossless aggregation, first-match firewall with exact shadow analysis) with independent oracles",
+ "task": "ae.netroute: Ip4/Cidr/AddrSet/RouteTable/Firewall verified against boolean-window, linear-scan and coordinate-compression oracles",
+ "passed": true,
+ "attempts": 2
+}
