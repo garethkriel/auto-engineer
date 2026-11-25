@@ -1,0 +1,1 @@
+{"run_id": "20261125T2057Z", "language": "java", "level": 10, "topic": "capstone: declarative cluster reconciler with scheduler and rolling updates", "task": "Deterministic Kubernetes-like reconcile loop (kubelet, deployment controller with surge/unavailable rolling update, scheduler, node failure) with invariant and seeded simulation tests", "passed": true, "attempts": 2}
