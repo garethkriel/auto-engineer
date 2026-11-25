@@ -1,6 +1,6 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (the five rows cache-hierarchy-sim, dns-toolkit, hashlife, ipv4-toolkit, merkle-sync verified 20261125T0656Z; the five rows elevator-sim, game-tree-search, paragraph-layout, poly-toolkit, rb-tree-map verified 20261125T0057Z; the four rows aho-corasick, columnar-store, persistent-rope, timer-wheel verified 20261124T1857Z; the three rows logic-simulator, range-coder-compressor, utxo-ledger verified 20261124T1256Z; the five rows bigint-from-scratch, cidr-toolkit, minilang-toolchain, mqtt-broker-core, prolog-engine verified 20261124T0656Z; verified 20261120T0656Z for earlier rows; the five new rows verified 20261120T1257Z (rows added this round: chess-rules, exact-geometry, mini-sql-engine, regex-automata, suffix-toolkit; earlier round: rows added this round: erasure-coded-blob-store, flow-toolkit, gorilla-timeseries, peg-engine, roaring-bitmap-index; earlier round: rows added this round: btree-buffer-pool, exact-simplex-lp, resp-mini-server, rsync-delta; earlier round: rows added this round: cdcl-sat-solver, heap-gc, hm-type-inference, probabilistic-sketches, swim-membership; earlier round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
+All skills pass `mvn -q -B test` (the four rows boolean-minimizer, proto-wire-codec, shell-word-expansion, succinct-structures verified 20261125T1257Z; the five rows cache-hierarchy-sim, dns-toolkit, hashlife, ipv4-toolkit, merkle-sync verified 20261125T0656Z; the five rows elevator-sim, game-tree-search, paragraph-layout, poly-toolkit, rb-tree-map verified 20261125T0057Z; the four rows aho-corasick, columnar-store, persistent-rope, timer-wheel verified 20261124T1857Z; the three rows logic-simulator, range-coder-compressor, utxo-ledger verified 20261124T1256Z; the five rows bigint-from-scratch, cidr-toolkit, minilang-toolchain, mqtt-broker-core, prolog-engine verified 20261124T0656Z; verified 20261120T0656Z for earlier rows; the five new rows verified 20261120T1257Z (rows added this round: chess-rules, exact-geometry, mini-sql-engine, regex-automata, suffix-toolkit; earlier round: rows added this round: erasure-coded-blob-store, flow-toolkit, gorilla-timeseries, peg-engine, roaring-bitmap-index; earlier round: rows added this round: btree-buffer-pool, exact-simplex-lp, resp-mini-server, rsync-delta; earlier round: rows added this round: cdcl-sat-solver, heap-gc, hm-type-inference, probabilistic-sketches, swim-membership; earlier round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
@@ -10,6 +10,7 @@ All skills pass `mvn -q -B test` (the five rows cache-hierarchy-sim, dns-toolkit
 | backtrack-toolkit | permutations, N-Queens, combination sum backtracking |
 | bigint-from-scratch | arbitrary-precision integers from scratch: Karatsuba, Knuth D division, modPow/modInverse, radix I/O (BigInteger as oracle) |
 | bitemporal-store | bitemporal key/value store: valid-time timelines, as-of reads, atomic transactions |
+| boolean-minimizer | exact Quine-McCluskey minimiser: prime implicants, essentials, dominance, branch-and-bound cover, don't-cares, SOP parser |
 | btree-buffer-pool | disk-backed B+tree over a pinning LRU buffer pool, free list, invariant checker |
 | business-calendar | java.time business-day arithmetic |
 | cache-hierarchy-sim | set-associative cache simulator: LRU/FIFO/PLRU/random, write policies, two-level hierarchy, AMAT, Belady OPT bound |
@@ -74,6 +75,7 @@ All skills pass `mvn -q -B test` (the five rows cache-hierarchy-sim, dns-toolkit
 | primitive-collections | IntBitSet (rank/select), open-addressing IntIntMap with backward-shift delete |
 | probabilistic-sketches | Bloom filter, Count-Min and HyperLogLog sketches with sealed serialization |
 | prolog-engine | Prolog subset: operator-precedence parser, iterative SLD with cut, findall, assert/retract, exact arithmetic |
+| proto-wire-codec | protobuf-style wire codec: varint/zigzag, proto3-like schema parser, packed fields, unknown-field preservation, strict offsets |
 | raft-lite | Raft election/replication plus seeded fault-injecting cluster simulator |
 | range-coder-compressor | carry-propagating range coder, Fenwick adaptive model, context-model byte compressor with CRC container |
 | rb-tree-map | order-statistic left-leaning red-black tree map: rank/select/countRange, floor/ceiling, invariant checker |
@@ -89,6 +91,7 @@ All skills pass `mvn -q -B test` (the five rows cache-hierarchy-sim, dns-toolkit
 | rsync-delta | rsync-style rolling-checksum delta sync with atomic directory writes |
 | saga-coordinator | write-ahead-log saga, compensation, crash resume |
 | semver-resolver | semver constraints, backtracking dependency resolver, lockfile |
+| shell-word-expansion | bash-subset word expansion: quotes, brace lists/sequences, ${} operators, word splitting (bash as differential oracle) |
 | single-flight | per-key call coalescing via CompletableFuture |
 | skip-list-map | indexable skip list: rank/select/countRange, navigation, invariant checker |
 | slotted-heap-file | slotted pages, record ids, per-page CRC32, compaction, atomic flush |
@@ -96,6 +99,7 @@ All skills pass `mvn -q -B test` (the five rows cache-hierarchy-sim, dns-toolkit
 | sql-select-builder | immutable parameterised SELECT builder, Dialect strategy |
 | sstable | immutable sorted table, Bloom filter, sparse index, tombstones, k-way merge |
 | string-ops | RLE, palindromes, capitalisation |
+| succinct-structures | rank/select bit vector, wavelet matrix, Elias-Fano, exact space formulas, invariant checker |
 | sudoku-bitmask | bitmask Sudoku solver, solution counting with limit |
 | suffix-toolkit | suffix array, LCP, BWT, FM-index, substring search |
 | swim-membership | SWIM failure detection and membership gossip simulation with invariant checker |
