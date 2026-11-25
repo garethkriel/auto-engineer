@@ -66,7 +66,6 @@ All skills pass `mvn -q -B test` (the five rows cache-hierarchy-sim, dns-toolkit
 | paragraph-layout | Knuth-Plass optimal line breaking over box/glue/penalty items, justified text with hyphenation, brute-force oracle |
 | parallel-helpers | bounded ordered parallel map, firstSuccess, timeouts |
 | partitioned-log-broker | Kafka-style partitioned log, consumer groups, rebalance, at-least-once |
-| paxos-log | multi-decree Paxos: ballots, phase-1 recovery with NOOP gap fill, heartbeat/forward/sync, seeded fault-injecting Cluster with safety checker |
 | peg-engine | PEG grammar parser with static analysis, packrat interpreter, farthest-failure errors |
 | persistent-collections | immutable persistent stack and queue |
 | persistent-rope | immutable AVL rope: O(log n) concat/split/insert/delete, line index, streaming KMP search |
