@@ -1,0 +1,1 @@
+{"run_id": "20261125T0857Z", "language": "java", "level": 20, "topic": "capstone: Quine-McCluskey boolean minimiser with exact branch-and-bound cover", "task": "ae.qmc: prime implicants plus exact min (terms, literals) sum-of-products with don't-cares, dominance reductions, node budget, and a brute-force oracle", "passed": true, "attempts": 3}
