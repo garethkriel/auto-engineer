@@ -1,0 +1,1 @@
+{"run_id": "20261125T1656Z", "language": "java", "level": 10, "topic": "capstone: geohash toolkit (bit-interleaved base32 encode/decode, neighbours with antimeridian wrap and pole stops, box cover incl. wrapped boxes, haversine) with brute-force cover oracle", "task": "Geohash toolkit with cover-vs-brute-force differential tests", "passed": true, "attempts": 3}
