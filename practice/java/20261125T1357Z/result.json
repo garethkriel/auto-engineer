@@ -1,0 +1,9 @@
+{
+ "run_id": "20261125T1357Z",
+ "language": "java",
+ "level": 20,
+ "topic": "Capstone systems: Kademlia DHT simulated in-process",
+ "task": "Kademlia DHT (XOR routing table, iterative lookup, put/get, failure handling) over a simulated network",
+ "passed": true,
+ "attempts": 3
+}
