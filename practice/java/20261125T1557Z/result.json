@@ -1,0 +1,1 @@
+{"run_id": "20261125T1557Z", "language": "java", "level": 20, "topic": "capstone systems: reverse-mode automatic differentiation with gradient checking and a small neural network", "task": "Reverse-mode autodiff over matrices (Mat/Node/GradCheck) plus a seeded tanh MLP trained on XOR, verified by literal gradients and finite-difference checks", "passed": true, "attempts": 1}
