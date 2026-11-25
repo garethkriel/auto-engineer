@@ -1,0 +1,1 @@
+{"run_id": "20261125T0156Z", "language": "java", "level": 20, "topic": "capstone: CPU cache simulator (set-associative, LRU/FIFO/PLRU/random, write policies, two-level hierarchy, AMAT, Belady OPT) with oracle differential tests and mutation check", "task": "ae.cachesim cache hierarchy simulator with naive oracles and OPT lower bound", "passed": true, "attempts": 1}
