@@ -1,0 +1,9 @@
+{
+ "run_id": "20261126T0356Z",
+ "language": "java",
+ "level": 10,
+ "topic": "capstone: public-key crypto from scratch (P-256/secp256k1 ECC, RFC 6979 ECDSA, strict DER, ECDH, Miller-Rabin, RSA PKCS#1 v1.5 with CRT fault check) with JDK differential tests and a mutation check",
+ "task": "ae.pk public-key toolkit verified against RFC 6979 vectors, JDK Signature/KeyAgreement and naive affine oracle",
+ "passed": true,
+ "attempts": 1
+}
