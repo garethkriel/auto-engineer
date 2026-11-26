@@ -1,5 +1,6 @@
 # png-codec
 
+- **Description:** Strict PNG encoder/decoder with scanline filters (None/Sub/Up/Average/Paeth), CRC checks, palette/bit-depth validation, adaptive filter choice and ImageIO differential tests.
 - **Language:** Java 21, standard library only (`java.util.zip` for deflate/CRC).
 - **Tags:** png, image, codec, scanline-filters, paeth, crc32, strict-decoder, imageio-differential
 - **Source round:** `practice/java/20261125T2256Z`
