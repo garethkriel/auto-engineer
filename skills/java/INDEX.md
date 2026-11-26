@@ -1,6 +1,6 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (the nine rows autodiff-mlp, boolean-minimizer, geohash-toolkit, kademlia-dht, paxos-log, proto-wire-codec, shell-word-expansion, succinct-structures, torrent-core verified 20261125T1856Z; the five rows cache-hierarchy-sim, dns-toolkit, hashlife, ipv4-toolkit, merkle-sync verified 20261125T0656Z; the five rows elevator-sim, game-tree-search, paragraph-layout, poly-toolkit, rb-tree-map verified 20261125T0057Z; the four rows aho-corasick, columnar-store, persistent-rope, timer-wheel verified 20261124T1857Z; the three rows logic-simulator, range-coder-compressor, utxo-ledger verified 20261124T1256Z; the five rows bigint-from-scratch, cidr-toolkit, minilang-toolchain, mqtt-broker-core, prolog-engine verified 20261124T0656Z; verified 20261120T0656Z for earlier rows; the five new rows verified 20261120T1257Z (rows added this round: chess-rules, exact-geometry, mini-sql-engine, regex-automata, suffix-toolkit; earlier round: rows added this round: erasure-coded-blob-store, flow-toolkit, gorilla-timeseries, peg-engine, roaring-bitmap-index; earlier round: rows added this round: btree-buffer-pool, exact-simplex-lp, resp-mini-server, rsync-delta; earlier round: rows added this round: cdcl-sat-solver, heap-gc, hm-type-inference, probabilistic-sketches, swim-membership; earlier round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
+All skills pass `mvn -q -B test` (the four rows cluster-reconciler, crypto-primitives, png-codec, rv32im-toolchain verified 20261126T0057Z; the nine rows autodiff-mlp, boolean-minimizer, geohash-toolkit, kademlia-dht, paxos-log, proto-wire-codec, shell-word-expansion, succinct-structures, torrent-core verified 20261125T1856Z; the five rows cache-hierarchy-sim, dns-toolkit, hashlife, ipv4-toolkit, merkle-sync verified 20261125T0656Z; the five rows elevator-sim, game-tree-search, paragraph-layout, poly-toolkit, rb-tree-map verified 20261125T0057Z; the four rows aho-corasick, columnar-store, persistent-rope, timer-wheel verified 20261124T1857Z; the three rows logic-simulator, range-coder-compressor, utxo-ledger verified 20261124T1256Z; the five rows bigint-from-scratch, cidr-toolkit, minilang-toolchain, mqtt-broker-core, prolog-engine verified 20261124T0656Z; verified 20261120T0656Z for earlier rows; the five new rows verified 20261120T1257Z (rows added this round: chess-rules, exact-geometry, mini-sql-engine, regex-automata, suffix-toolkit; earlier round: rows added this round: erasure-coded-blob-store, flow-toolkit, gorilla-timeseries, peg-engine, roaring-bitmap-index; earlier round: rows added this round: btree-buffer-pool, exact-simplex-lp, resp-mini-server, rsync-delta; earlier round: rows added this round: cdcl-sat-solver, heap-gc, hm-type-inference, probabilistic-sketches, swim-membership; earlier round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
@@ -19,11 +19,13 @@ All skills pass `mvn -q -B test` (the nine rows autodiff-mlp, boolean-minimizer,
 | chess-rules | full chess rules engine: FEN/SAN, legal moves, make/unmake, perft, mate search |
 | cidr-toolkit | IPv4 CIDR set algebra, longest-prefix route trie with aggregation, firewall shadow analysis |
 | circuit-breaker | circuit breaker, generation-tagged permits, injectable clock |
+| cluster-reconciler | deterministic Kubernetes-like control loop: rolling updates (maxSurge/maxUnavailable), most-free-cpu scheduler, node failure/recovery, invariant checks and seeded simulations |
 | columnar-store | column segments with RLE/dict/FOR/delta encodings, zone-map pruning, CRC-sealed strict decoder, segmented table scan/aggregate |
 | consistent-hash-ring | weighted virtual-node hash ring, preference lists, bounded-load, rebalance diff |
 | content-addressed-vcs | SHA-256 object store, commits, merge-base, three-way merge, fsck |
 | coord-service | ZooKeeper-style kernel: sessions, ephemeral/sequential nodes, watches, multi, fenced lock |
 | crdt-toolkit | state-based CRDTs (GCounter, PNCounter, LWW register, OR-set) with join merge |
+| crypto-primitives | symmetric crypto from scratch: streaming SHA-256, HMAC, HKDF, PBKDF2, AES-128/192/256, CBC/CTR/GCM, constant-time compare, JDK differential tests |
 | datalog-engine | Datalog parser + stratified negation, naive and semi-naive evaluation |
 | deflate-codec | DEFLATE/zlib codec: LZ77, Huffman, bit streams, Adler-32, JDK oracle tests |
 | dir-snapshot-diff | SHA-256 directory snapshots, atomic persistence, diffs |
@@ -74,6 +76,7 @@ All skills pass `mvn -q -B test` (the nine rows autodiff-mlp, boolean-minimizer,
 | peg-engine | PEG grammar parser with static analysis, packrat interpreter, farthest-failure errors |
 | persistent-collections | immutable persistent stack and queue |
 | persistent-rope | immutable AVL rope: O(log n) concat/split/insert/delete, line index, streaming KMP search |
+| png-codec | strict PNG encoder/decoder: scanline filters (Paeth), CRC32, deflate via java.util.zip, ImageIO differential tests |
 | poly-toolkit | polynomials mod 998244353: NTT, Newton inverse, divMod, Lagrange, Shamir sharing, Berlekamp-Massey nthTerm |
 | prime-sieve-number-theory | odd-only bit sieve, Miller-Rabin, Pollard-rho, overflow-free modPow |
 | primitive-collections | IntBitSet (rank/select), open-addressing IntIntMap with backward-shift delete |
@@ -93,6 +96,7 @@ All skills pass `mvn -q -B test` (the nine rows autodiff-mlp, boolean-minimizer,
 | rollback-dsu | union-find with undo, offline dynamic connectivity |
 | rotating-log | size-based log rotation with numbered backups |
 | rsync-delta | rsync-style rolling-checksum delta sync with atomic directory writes |
+| rv32im-toolchain | RV32IM codec, two-pass assembler (labels, pseudo-instructions, li expansion) and CPU emulator with M-extension edge cases and traps |
 | saga-coordinator | write-ahead-log saga, compensation, crash resume |
 | semver-resolver | semver constraints, backtracking dependency resolver, lockfile |
 | shell-word-expansion | bash-subset word expansion: quotes, brace expansion, ${..} parameter forms, word splitting; bash as differential oracle |
