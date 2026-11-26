@@ -1,0 +1,9 @@
+{
+ "run_id": "20261126T0556Z",
+ "language": "java",
+ "level": 20,
+ "topic": "capstone: operational transformation for collaborative text editing (compose/transform/invert, Jupiter client state machine, server history, seeded multi-client simulation) with provenance-based TP1 tests and a 33-mutant check",
+ "task": "ae.ot: TextOp OT algebra, OtServer, OtClient and seeded OtSimulation verified by literals, randomized provenance tests and mutation pass",
+ "passed": true,
+ "attempts": 2
+}
