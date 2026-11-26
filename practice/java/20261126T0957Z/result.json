@@ -1,0 +1,9 @@
+{
+ "run_id": "20261126T0957Z",
+ "language": "java",
+ "level": 20,
+ "topic": "capstone: modern crypto primitives (ChaCha20-Poly1305 AEAD, X25519, strict Ed25519) with RFC vectors, JDK differential tests, degenerate-key strictness traps and a mutation check",
+ "task": "ae.cc: ChaCha20, Poly1305, RFC 8439 AEAD, X25519 and strict Ed25519 from scratch, checked by RFC vectors, JDK differential tests and a mutation check",
+ "passed": true,
+ "attempts": 1
+}
