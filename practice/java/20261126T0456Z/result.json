@@ -1,0 +1,9 @@
+{
+ "run_id": "20261126T0456Z",
+ "language": "java",
+ "level": 20,
+ "topic": "capstone systems: POSIX ustar/pax tar toolkit (strict reader, deterministic writer, traversal-safe extractor) with GNU tar differential tests and a 65-mutant check",
+ "task": "ae.tar: Entry/TarWriter/TarReader/TarExtractor interoperating with GNU tar 1.35 in both directions",
+ "passed": true,
+ "attempts": 3
+}
