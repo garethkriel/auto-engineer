@@ -1,0 +1,108 @@
+# label	file	pattern (\n = newline)	replacement
+R01-leb-cont-last	Reader.java	if ((b & 0x80) != 0) {	if (false) {
+R02-leb-unused-bits	Reader.java	if ((low & unusedMask) != expected) {	if (false) {
+R03-leb-signed-expect	Reader.java	if (signed && ((low >> (used - 1)) & 1) != 0) {	if (false) {
+R04-leb-signfill	Reader.java	result |= -1L << shift;	result |= 0L;
+R05-leb-signbit	Reader.java	(lastByte & 0x40) != 0) {	(lastByte & 0x20) != 0) {
+R06-leb-maxbytes	Reader.java	int maxBytes = (bits + 6) / 7;	int maxBytes = (bits + 5) / 7;
+R07-vec-count	Reader.java	if (n > remaining()) {\n            throw malformed("count exceeds	if (n > remaining() + 1) {\n            throw malformed("count exceeds
+R08-utf8-report	Reader.java	.onMalformedInput(CodingErrorAction.REPORT)	.onMalformedInput(CodingErrorAction.REPLACE)
+P01-section-id	ModuleParser.java	if (id > 12) {	if (id > 13) {
+P02-section-size	ModuleParser.java	if (size > r.remaining()) {	if (size > r.remaining() + 1) {
+P03-dup-section	ModuleParser.java	if (id <= last) {	if (id < last) {
+P04-order-track	ModuleParser.java	last = id;	last = 0;
+P05-size-mismatch	ModuleParser.java	if (!s.eof()) {\n                throw s.malformed("section size mismatch");	if (false) {\n                throw s.malformed("section size mismatch");
+P06-func-code-count	ModuleParser.java	if (module.funcTypes.size() != bodies.size()) {	if (false) {
+P07-multi-result	ModuleParser.java	if (rc > 1) {	if (rc > 2) {
+P08-mem-min-limit	ModuleParser.java	if (min > MAX_PAGES || max > MAX_PAGES) {	if (min > MAX_PAGES + 1 || max > MAX_PAGES) {
+P09-mem-max-limit	ModuleParser.java	if (min > MAX_PAGES || max > MAX_PAGES) {	if (min > MAX_PAGES || max > MAX_PAGES + 1) {
+P10-mem-min-max	ModuleParser.java	if (flag == 1 && max < min) {	if (flag == 1 && max <= min) {
+P11-dup-export	ModuleParser.java	if (!seen.add(name)) {	if (false) {
+P12-export-kind1	ModuleParser.java	if (kind == 1) {	if (kind == 5) {
+P13-const-type	ModuleParser.java	if (t != expected) {	if (false) {
+P14-locals-limit	ModuleParser.java	if (total > MAX_LOCALS) {	if (total > MAX_LOCALS + 1) {
+P15-locals-limit-ge	ModuleParser.java	if (total > MAX_LOCALS) {	if (total >= MAX_LOCALS) {
+P16-data-flag	ModuleParser.java	if (flag != 0) {	if (flag > 1) {
+P17-data-memory	ModuleParser.java	if (!module.hasMemory) {\n                throw Reader.invalid("unknown memory 0");	if (false) {\n                throw Reader.invalid("unknown memory 0");
+P18-start-params	ModuleParser.java	if (!t.params().isEmpty() || t.result() != null) {	if (t.result() != null) {
+P19-start-index	ModuleParser.java	if (module.start >= module.funcTypes.size()) {	if (module.start > module.funcTypes.size()) {
+P20-export-mem-idx	ModuleParser.java	if (!module.hasMemory || idx != 0) {	if (!module.hasMemory) {
+P21-export-func-idx	ModuleParser.java	if (idx >= module.funcTypes.size()) {\n                        throw Reader.invalid("unknown function 	if (idx > module.funcTypes.size()) {\n                        throw Reader.invalid("unknown function 
+P22-export-glob-idx	ModuleParser.java	if (idx >= module.globalTypes.size()) {\n                        throw Reader.invalid("unknown global 	if (idx > module.globalTypes.size()) {\n                        throw Reader.invalid("unknown global 
+P23-multi-memory	ModuleParser.java	if (n > 1) {	if (n > 2) {
+P24-limits-flag	ModuleParser.java	if (flag != 0 && flag != 1) {	if (flag > 2) {
+P25-mutability	ModuleParser.java	if (mut != 0 && mut != 1) {	if (mut > 2) {
+P26-functype-form	ModuleParser.java	if (form != 0x60) {	if (false) {
+P27-const-end	ModuleParser.java	if (end != 0x0B) {	if (false) {
+P28-func-type-index	ModuleParser.java	if (t >= module.types.size()) {	if (t > module.types.size()) {
+P29-body-size	ModuleParser.java	if (size > s.remaining()) {	if (size > s.remaining() + 1) {
+F01-pop-underflow	FunctionCompiler.java	if (vals.size() == f.height) {	if (vals.size() < f.height) {
+F02-poly-unknown	FunctionCompiler.java	if (f.unreachable) {\n                return null;	if (f.unreachable) {\n                return ValType.I32;
+F03-type-check	FunctionCompiler.java	if (actual != null && expect != null && actual != expect) {	if (false) {
+F04-unreachable-trunc	FunctionCompiler.java	while (vals.size() > f.height) {	while (vals.size() > f.height + 1000000) {
+F05-blocktype-void	FunctionCompiler.java	if (b == 0x40) {	if (b == 0x41) {
+F06-if-no-else-result	FunctionCompiler.java	if (f.kind == IF && f.result != null) {	if (false) {
+F07-if-else-patch	FunctionCompiler.java	        if (f.kind == IF) {\n            code[f.elsePatch] = n;	        if (f.kind == IF) {\n            code[f.elsePatch] = 0;
+F08-else-jmp	FunctionCompiler.java	emit(JMP);	emit(0x0F);
+F09-loop-target	FunctionCompiler.java	emit(f.loopStart);	emit(0);
+F10-arity	FunctionCompiler.java	emit(labelType(f) == null ? 0 : 1);	emit(0);
+F11-height	FunctionCompiler.java	emit(f.height);	emit(f.height + 1);
+F12-br-if-op	FunctionCompiler.java	emit(0x0D);	emit(0x0C);
+F13-select-types	FunctionCompiler.java	ValType t1 = pop(t2);	ValType t1 = pop(null);
+F14-immutable	FunctionCompiler.java	if (!mod.globalMutable.get(i)) {	if (false) {
+F15-align-ge	FunctionCompiler.java	if (align > naturalLog2) {	if (align >= naturalLog2) {
+F16-align-loose	FunctionCompiler.java	if (align > naturalLog2) {	if (align > naturalLog2 + 1) {
+F17-reserved-byte	FunctionCompiler.java	if (reserved != 0) {	if (false) {
+F18-brtable-types	FunctionCompiler.java	if (labelType(label(depths[i])) != lt) {	if (false) {
+F19-label-bound	FunctionCompiler.java	if (depth >= ctrls.size()) {	if (depth > ctrls.size()) {
+F20-local-bound	FunctionCompiler.java	if (i >= locals.length) {	if (i > locals.length) {
+F21-call-bound	FunctionCompiler.java	int idx = in.index();\n                if (idx >= mod.funcTypes.size()) {	int idx = in.index();\n                if (idx > mod.funcTypes.size()) {
+F22-i64-cmp-range	FunctionCompiler.java	} else if (op >= 0x51 && op <= 0x5A) {	} else if (op >= 0x51 && op <= 0x59) {
+F23-i32-bin-range	FunctionCompiler.java	} else if (op >= 0x6A && op <= 0x78) {	} else if (op >= 0x6A && op <= 0x77) {
+F24-ext32-range	FunctionCompiler.java	} else if (op >= 0xC2 && op <= 0xC4) {	} else if (op >= 0xC2 && op <= 0xC3) {
+F25-maxstack	FunctionCompiler.java	maxStack = Math.max(maxStack, vals.size());	maxStack = Math.min(maxStack, vals.size());
+F26-global-bound	FunctionCompiler.java	if (i >= mod.globalTypes.size()) {	if (i > mod.globalTypes.size()) {
+F27-return-pop	FunctionCompiler.java	if (type.result() != null) {\n                    pop(type.result());\n                }\n                emit(0x0F);	if (type.result() != null) {\n                }\n                emit(0x0F);
+F28-else-reset	FunctionCompiler.java	f.unreachable = false;	f.unreachable = true;
+I01-depth	Instance.java	if (++depth > MAX_DEPTH) {	if (++depth > MAX_DEPTH + 1) {
+I02-stack-cap	Instance.java	if ((long) base + f.maxStack() > stack.length) {	if ((long) base + f.maxStack() >= stack.length) {
+I03-fuel	Instance.java	if (--fuel < 0) {	if (--fuel <= 0) {
+I04-grow-limit	Instance.java	Math.min(module.memMax, MAX_PAGES)	Math.max(module.memMax, MAX_PAGES)
+I05-grow-ge	Instance.java	if (want > limit) {	if (want >= limit) {
+I06-load-bounds	Instance.java	private long load(long ea, int size) {\n        if (ea + size > mem.length) {	private long load(long ea, int size) {\n        if (ea + size > mem.length + 1) {
+I07-store-bounds	Instance.java	private void store(long ea, int size, long v) {\n        if (ea + size > mem.length) {	private void store(long ea, int size, long v) {\n        if (ea + size > mem.length + 1) {
+I08-ea-offset-signed	Instance.java	(base & 0xFFFFFFFFL) + Integer.toUnsignedLong(offset)	(base & 0xFFFFFFFFL) + offset
+I09-ea-base-signed	Instance.java	(base & 0xFFFFFFFFL) + Integer.toUnsignedLong(offset)	base + Integer.toUnsignedLong(offset)
+I10-load8s	Instance.java	case 0x2C -> st[sp - 1] = (byte) load(	case 0x2C -> st[sp - 1] = load(
+I11-load16s	Instance.java	case 0x2E -> st[sp - 1] = (short) load(	case 0x2E -> st[sp - 1] = load(
+I12-load32	Instance.java	case 0x28 -> st[sp - 1] = (int) load(	case 0x28 -> st[sp - 1] = load(
+I13-store8-size	Instance.java	op == 0x3A ? 1 : 2;	op == 0x3A ? 2 : 2;
+I14-store16-size	Instance.java	op == 0x3A ? 1 : 2;	op == 0x3A ? 1 : 1;
+I15-brtable-unsigned	Instance.java	long idx = st[--sp] & 0xFFFFFFFFL;	long idx = (int) st[--sp];
+I16-brtable-le-EQUIVALENT	Instance.java	int sel = idx < count ? (int) idx : count;	int sel = idx <= count ? (int) idx : count;
+I17-select	Instance.java	if (cond == 0) {\n                        st[sp - 1] = second;	if (cond != 0) {\n                        st[sp - 1] = second;
+I18-if-sign	Instance.java	pc = cond != 0 ? pc + 1 : code[pc];	pc = cond > 0 ? pc + 1 : code[pc];
+I19-brif-sign	Instance.java	if (cond != 0) {\n                        burn();	if (cond > 0) {\n                        burn();
+I21-lt-u	Instance.java	case 0x49 -> Integer.compareUnsigned(a, b) < 0;	case 0x49 -> a < b;
+I22-shr-u	Instance.java	case 0x76 -> a >>> b;	case 0x76 -> a >> b;
+I23-extend-u	Instance.java	case 0xAD -> a & 0xFFFFFFFFL;	case 0xAD -> a;
+I24-wrap	Instance.java	case 0xA7 -> (int) a;	case 0xA7 -> a;
+I25-call-fuel	Instance.java	burn();\n                    int callee = code[pc++];	int callee = code[pc++];
+I26-brif-fuel	Instance.java	if (cond != 0) {\n                        burn();	if (cond != 0) {
+I27-brtable-fuel	Instance.java	case 0x0E -> {\n                    burn();	case 0x0E -> {
+I28-br-fuel	Instance.java	case 0x0C -> {\n                    burn();	case 0x0C -> {
+I29-arg-normalise	Instance.java	t.params().get(i) == ValType.I32 ? (long) (int) args[i] : args[i];	args[i];
+I30-depth-dec	Instance.java	            depth--;	            depth += 0;
+I31-data-fit	Instance.java	if (d.offset() + d.bytes().length > inst.mem.length) {	if (d.offset() + d.bytes().length >= inst.mem.length) {
+I32-mem-limit	Instance.java	if (module.memMin > MAX_PAGES) {	if (module.memMin >= MAX_PAGES) {
+I33-start-run	Instance.java	if (module.start >= 0) {	if (module.start > 0) {
+I34-i64-clz	Instance.java	st[sp - 1] = op == 0x79 ? Long.numberOfLeadingZeros(a)	st[sp - 1] = op == 0x79 ? Integer.numberOfLeadingZeros((int) a)
+I35-i64-rotl-mask	Instance.java	case 0x89 -> Long.rotateLeft(a, (int) b);	case 0x89 -> Long.rotateLeft(a, (int) (b & 31));
+I36-i64-div-ovf	Instance.java	if (a == Long.MIN_VALUE && b == -1) {	if (a == Long.MIN_VALUE && b == -2) {
+I37-i32-div-ovf	Instance.java	if (a == Integer.MIN_VALUE && b == -1) {	if (a == Integer.MIN_VALUE && b == -2) {
+I38-const64-hi	Instance.java	((long) code[pc + 1] << 32)	((long) code[pc + 1] << 31)
+I39-const64-lo	Instance.java	(code[pc] & 0xFFFFFFFFL)	(long) code[pc]
+I40-grow-unsigned	Instance.java	long want = old + Integer.toUnsignedLong(deltaPages);	long want = old + deltaPages;
+I41-mem-size	Instance.java	case 0x3F -> st[sp++] = mem.length / PAGE;	case 0x3F -> st[sp++] = mem.length / PAGE + 1;
+I42-local-tee	Instance.java	case 0x22 -> locals[code[pc++]] = st[sp - 1];	case 0x22 -> locals[code[pc++]] = st[--sp];
+I43-ret-copy	Instance.java	st[base] = st[sp - 1];\n                    }\n                    return base	st[base] = st[base];\n                    }\n                    return base

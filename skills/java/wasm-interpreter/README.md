@@ -1,0 +1,9 @@
+# wasm-interpreter
+
+- **Description:** `ae.wasm`: a strict WebAssembly (MVP integer subset: i32/i64, one memory, globals, start function, no floats/tables/imports/multi-value) binary decoder, spec-style validator and interpreter. `ModuleParser.parse(byte[])` decodes and validates (`ModuleException` kinds MALFORMED / INVALID / LINK), `Instance.instantiate(Module[, fuel])` + `invoke(name, long...)` run it; `Trap` kinds cover unreachable, div by zero, integer overflow, out-of-bounds memory, call-stack/operand-stack exhaustion and fuel exhaustion. Validation uses the stack-polymorphic algorithm and lowers each body to a flat `int[]` with pre-resolved branch targets (target pc, arity, stack height), so `br`/`br_if`/`br_table`/`return` are O(1).
+- **Language:** java (21, stdlib only)
+- **Tags:** webassembly, wasm, interpreter, validator, leb128, binary-format, stack-machine, differential-testing, mutation-testing
+- **Source round:** practice/java/20261126T2356Z
+- **Tests (268):** literal LEB128 vectors and strictness, per-opcode edge tables for every i32/i64 operation, an invalid-module table with message checks, control-flow programs (factorial, recursive fib, gcd, collatz, sieve in linear memory, `br_table` dispatch), exact memory/stack/depth/fuel boundaries, truncation and byte-flip robustness loops (mutated modules are also instantiated and run with fuel), and a randomized differential test of typed expression trees against an independent `BigInteger` oracle.
+- **Mutation pass:** `practice/java/20261126T2356Z/mutants/` (107 single-line mutants: 102 killed by failing tests, 4 killed by timeout, 1 documented equivalent).
+- **Reuse notes:** i32 values are stored sign-extended in a `long`; shifts/rotates mask the count; effective address is `unsigned(base)+unsigned(offset)` with no wrap; keep `Reader.leb` strict (last-byte continuation bit and unused bits checked, sign-extend from the last byte read).
