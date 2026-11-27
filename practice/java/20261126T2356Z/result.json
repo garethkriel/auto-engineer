@@ -1,0 +1,9 @@
+{
+ "run_id": "20261126T2356Z",
+ "language": "java",
+ "level": 20,
+ "topic": "capstone: WebAssembly (integer MVP subset) binary decoder, validator and interpreter with strict LEB128, differential BigInteger oracle and a 107-mutant check",
+ "task": "ae.wasm: strict wasm binary parser, stack-polymorphic validator lowering to branch-resolved code, interpreter with traps and fuel, tested by literal vectors, edge tables, programs, robustness loops, a random-expression differential test and mutation pass",
+ "passed": true,
+ "attempts": 3
+}
