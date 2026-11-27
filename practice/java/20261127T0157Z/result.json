@@ -1,0 +1,9 @@
+{
+  "run_id": "20261127T0157Z",
+  "language": "java",
+  "level": 20,
+  "topic": "capstone: Datalog engine with stratified negation, naive and semi-naive evaluation, safety/arity/stratification validation and a 14-mutant check",
+  "task": "ae.datalog: parser with line:col errors, validating Engine (safety, arity, stratification), NAIVE vs SEMI_NAIVE fixpoint, sorted queries, tested by literal programs, Floyd-Warshall/BFS oracles, random stratified programs and a mutation pass",
+  "passed": true,
+  "attempts": 1
+}
