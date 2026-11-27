@@ -1,0 +1,9 @@
+{
+  "run_id": "20261127T0556Z",
+  "language": "java",
+  "level": 20,
+  "topic": "capstone: arbitrary-precision decimal arithmetic (rounding modes, preferred-scale division, sqrt, formatting) with BigDecimal oracle and a 17-mutant check",
+  "task": "Level-20 capstone: arbitrary-precision decimal (Dec) from scratch on BigInteger, with BigDecimal differential tests and a mutation check",
+  "passed": true,
+  "attempts": 1
+}
