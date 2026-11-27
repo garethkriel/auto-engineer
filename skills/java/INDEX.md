@@ -1,6 +1,6 @@
 # Java skills index
 
-All skills pass `mvn -q -B test` (the five rows earley-parser, exact-linear-algebra, hash-mac-toolkit, lr-parser-generator, uri-toolkit verified 20261126T1856Z; the twelve rows archive-toolkit, binary-to-text-codecs, cluster-reconciler, crypto-primitives, json-schema-validator, modern-crypto-primitives, ot-text-collab, png-codec, public-key-toolkit, rv32im-toolchain, units-of-measure, utf-codec verified 20261126T1256Z; the nine rows autodiff-mlp, boolean-minimizer, geohash-toolkit, kademlia-dht, paxos-log, proto-wire-codec, shell-word-expansion, succinct-structures, torrent-core verified 20261125T1856Z; the five rows cache-hierarchy-sim, dns-toolkit, hashlife, ipv4-toolkit, merkle-sync verified 20261125T0656Z; the five rows elevator-sim, game-tree-search, paragraph-layout, poly-toolkit, rb-tree-map verified 20261125T0057Z; the four rows aho-corasick, columnar-store, persistent-rope, timer-wheel verified 20261124T1857Z; the three rows logic-simulator, range-coder-compressor, utxo-ledger verified 20261124T1256Z; the five rows bigint-from-scratch, cidr-toolkit, minilang-toolchain, mqtt-broker-core, prolog-engine verified 20261124T0656Z; verified 20261120T0656Z for earlier rows; the five new rows verified 20261120T1257Z (rows added this round: chess-rules, exact-geometry, mini-sql-engine, regex-automata, suffix-toolkit; earlier round: rows added this round: erasure-coded-blob-store, flow-toolkit, gorilla-timeseries, peg-engine, roaring-bitmap-index; earlier round: rows added this round: btree-buffer-pool, exact-simplex-lp, resp-mini-server, rsync-delta; earlier round: rows added this round: cdcl-sat-solver, heap-gc, hm-type-inference, probabilistic-sketches, swim-membership; earlier round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
+All skills pass `mvn -q -B test` (the nine rows calendar-systems, cfg-toolkit, decimal-arith, external-merge-sort, ieee754-softfloat, order-book, patch-toolkit, qos-schedulers, wasm-interpreter verified 20261127T0656Z; the five rows earley-parser, exact-linear-algebra, hash-mac-toolkit, lr-parser-generator, uri-toolkit verified 20261126T1856Z; the twelve rows archive-toolkit, binary-to-text-codecs, cluster-reconciler, crypto-primitives, json-schema-validator, modern-crypto-primitives, ot-text-collab, png-codec, public-key-toolkit, rv32im-toolchain, units-of-measure, utf-codec verified 20261126T1256Z; the nine rows autodiff-mlp, boolean-minimizer, geohash-toolkit, kademlia-dht, paxos-log, proto-wire-codec, shell-word-expansion, succinct-structures, torrent-core verified 20261125T1856Z; the five rows cache-hierarchy-sim, dns-toolkit, hashlife, ipv4-toolkit, merkle-sync verified 20261125T0656Z; the five rows elevator-sim, game-tree-search, paragraph-layout, poly-toolkit, rb-tree-map verified 20261125T0057Z; the four rows aho-corasick, columnar-store, persistent-rope, timer-wheel verified 20261124T1857Z; the three rows logic-simulator, range-coder-compressor, utxo-ledger verified 20261124T1256Z; the five rows bigint-from-scratch, cidr-toolkit, minilang-toolchain, mqtt-broker-core, prolog-engine verified 20261124T0656Z; verified 20261120T0656Z for earlier rows; the five new rows verified 20261120T1257Z (rows added this round: chess-rules, exact-geometry, mini-sql-engine, regex-automata, suffix-toolkit; earlier round: rows added this round: erasure-coded-blob-store, flow-toolkit, gorilla-timeseries, peg-engine, roaring-bitmap-index; earlier round: rows added this round: btree-buffer-pool, exact-simplex-lp, resp-mini-server, rsync-delta; earlier round: rows added this round: cdcl-sat-solver, heap-gc, hm-type-inference, probabilistic-sketches, swim-membership; earlier round: bitemporal-store, coord-service, datalog-engine, deflate-codec, incremental-build, lock-manager, partitioned-log-broker, spatial-quadtree, windowed-aggregation; earlier new rows: content-addressed-vcs, job-scheduler, mvcc-store, semver-resolver, vfs-inode-model)). See each folder's README.
 
 | Skill | Use it for |
 |---|---|
@@ -17,7 +17,9 @@ All skills pass `mvn -q -B test` (the five rows earley-parser, exact-linear-alge
 | btree-buffer-pool | disk-backed B+tree over a pinning LRU buffer pool, free list, invariant checker |
 | business-calendar | java.time business-day arithmetic |
 | cache-hierarchy-sim | set-associative cache simulator: LRU/FIFO/PLRU/random, write policies, two-level hierarchy, AMAT, Belady OPT bound |
+| calendar-systems | calendar conversions over epoch days: proleptic Gregorian/Julian, 1582 hybrid gap, tabular Islamic, month arithmetic, ISO week dates, Easter |
 | cdcl-sat-solver | CDCL SAT solver with watched literals, learning, restarts, DIMACS, RUP proof checker |
+| cfg-toolkit | compiler control-flow graphs: dominators, dominance frontier, natural loops, liveness, dead-code elimination, graph-colouring register allocation |
 | chess-rules | full chess rules engine: FEN/SAN, legal moves, make/unmake, perft, mate search |
 | cidr-toolkit | IPv4 CIDR set algebra, longest-prefix route trie with aggregation, firewall shadow analysis |
 | circuit-breaker | circuit breaker, generation-tagged permits, injectable clock |
@@ -29,6 +31,7 @@ All skills pass `mvn -q -B test` (the five rows earley-parser, exact-linear-alge
 | crdt-toolkit | state-based CRDTs (GCounter, PNCounter, LWW register, OR-set) with join merge |
 | crypto-primitives | symmetric crypto from scratch: SHA-256, HMAC, HKDF, PBKDF2, AES (CBC/CTR/GCM), constant-time compare |
 | datalog-engine | Datalog parser + stratified negation, naive and semi-naive evaluation |
+| decimal-arith | arbitrary-precision decimal (unscaled BigInteger + scale): 8 rounding modes, divide with preferred scale, correctly rounded sqrt, differential tests vs BigDecimal |
 | deflate-codec | DEFLATE/zlib codec: LZ77, Huffman, bit streams, Adler-32, JDK oracle tests |
 | dir-snapshot-diff | SHA-256 directory snapshots, atomic persistence, diffs |
 | dns-toolkit | DNS wire codec with compression, zones (wildcards, delegation), authoritative server, caching iterative resolver |
@@ -40,6 +43,7 @@ All skills pass `mvn -q -B test` (the five rows earley-parser, exact-linear-alge
 | exact-geometry | exact integer geometry: hull, segment intersection, point-in-polygon, closest pair, sweep |
 | exact-linear-algebra | rational matrices: Gauss-Jordan, LU, Bareiss determinant, characteristic polynomial, eigenvalues, Gram-Schmidt |
 | exact-simplex-lp | exact rational simplex LP solver with Bland rule and duality/Farkas certificates |
+| external-merge-sort | stable external merge sort: replacement-selection runs, loser-tree k-way merge, temp run files, atomic output, failure injection |
 | file-kv-store | file-backed key-value store |
 | flow-toolkit | Dinic max-flow/min-cut, min-cost flow, Hopcroft-Karp, Hungarian, shift planner |
 | fraction | exact rational value class |
@@ -51,6 +55,7 @@ All skills pass `mvn -q -B test` (the five rows earley-parser, exact-linear-alge
 | hashlife | Game of Life via HashLife: hash-consed quadtree, step(n), RLE, compact(), naive oracle |
 | heap-gc | simulated heap with mark-sweep/compaction, free-list allocators, invariant checker |
 | hm-type-inference | Hindley-Milner type inference: parser, unification, let-polymorphism |
+| ieee754-softfloat | IEEE-754 binary64 soft-float on raw long bits (add/sub/mul/div/sqrt/fma), exact decimal parsing, shortest round-trip printing |
 | incremental-build | incremental build engine: dynamic deps, early cutoff, persistence |
 | indexed-priority-queue | d-ary indexed min-heap, changeKey/remove by id, deterministic ties |
 | int-range | half-open range value class |
@@ -77,10 +82,12 @@ All skills pass `mvn -q -B test` (the five rows earley-parser, exact-linear-alge
 | notification-renderer | strategy-pattern refactor with characterisation + differential tests |
 | object-pool | bounded blocking resource pool, slot accounting |
 | order-analytics | custom Collector, immutable monoid stats, grouping |
+| order-book | limit order book matching: price-time priority, icebergs, IOC/FOK/post-only, self-trade prevention, amend semantics |
 | ot-text-collab | operational transformation for text: compose/invert/transform, server history, Jupiter client, seeded simulation |
 | paragraph-layout | Knuth-Plass optimal line breaking over box/glue/penalty items, justified text with hyphenation, brute-force oracle |
 | parallel-helpers | bounded ordered parallel map, firstSuccess, timeouts |
 | partitioned-log-broker | Kafka-style partitioned log, consumer groups, rebalance, at-least-once |
+| patch-toolkit | unified diff parse/apply, diff3 three-way merge with conflicts, differential tests |
 | paxos-log | multi-decree Paxos replicated log with NOOP gap filling, Sync catch-up and a seeded fault-injecting Cluster with safety checker |
 | peg-engine | PEG grammar parser with static analysis, packrat interpreter, farthest-failure errors |
 | persistent-collections | immutable persistent stack and queue |
@@ -93,6 +100,7 @@ All skills pass `mvn -q -B test` (the five rows earley-parser, exact-linear-alge
 | prolog-engine | Prolog subset: operator-precedence parser, iterative SLD with cut, findall, assert/retract, exact arithmetic |
 | proto-wire-codec | protobuf-style wire codec: varint/zigzag, schema parser, dynamic Msg, packed fields, unknown-field preservation, strict offsets |
 | public-key-toolkit | P-256/secp256k1 ECDSA (RFC 6979), strict DER, ECDH, Miller-Rabin, RSA PKCS1 v1.5 on BigInteger |
+| qos-schedulers | packet schedulers in discrete time: FIFO, priority, DRR, WFQ, token-bucket shaper, fairness invariants |
 | raft-lite | Raft election/replication plus seeded fault-injecting cluster simulator |
 | range-coder-compressor | carry-propagating range coder, Fenwick adaptive model, context-model byte compressor with CRC container |
 | rb-tree-map | order-statistic left-leaning red-black tree map: rank/select/countRange, floor/ceiling, invariant checker |
@@ -140,4 +148,5 @@ All skills pass `mvn -q -B test` (the five rows earley-parser, exact-linear-alge
 | utxo-ledger | UTXO blockchain: Merkle proofs, PoW blocks, atomic apply/undo, reorg to heavier chain |
 | validator-lazy | error-accumulating validators, thread-safe memoising Lazy |
 | vfs-inode-model | in-memory POSIX-like filesystem: inodes, links, perms, quota, fsck |
+| wasm-interpreter | strict WebAssembly MVP integer subset: binary decoder, validator, interpreter, mutation-tested |
 | windowed-aggregation | event-time windows (tumbling/sliding/session), watermarks, lateness, snapshots |
