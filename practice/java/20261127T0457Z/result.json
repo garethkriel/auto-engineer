@@ -1,0 +1,1 @@
+{"run_id": "20261127T0457Z", "language": "java", "level": 20, "topic": "capstone: external merge sort with memory budget, run files, loser tree, crash-safe line-file output and a 14-mutant check", "task": "ae.xsort: stable external merge sort (replacement selection runs, loser-tree k-way merge, atomic file output, leak-free cleanup)", "passed": true, "attempts": 1}
